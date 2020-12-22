@@ -1,2 +1,4 @@
+https://callstack.github.io/react-native-paper/getting-started.html
+
 `yarn add react-native-paper`
 `yarn add react-native-vector-icons` and `cd ios` and `pod install` and `cd ..`
