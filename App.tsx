@@ -26,11 +26,13 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import { Provider as PaperProvider } from 'react-native-paper';
+
 declare const global: {HermesInternal: null | {}};
 
 const App = () => {
   return (
-    <>
+    <PaperProvider>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         <ScrollView
@@ -72,7 +74,7 @@ const App = () => {
           </View>
         </ScrollView>
       </SafeAreaView>
-    </>
+    </PaperProvider>
   );
 };
 

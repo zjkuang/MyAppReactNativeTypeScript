@@ -1,0 +1,2 @@
+`yarn add react-native-paper`
+`yarn add react-native-vector-icons` and `cd ios` and `pod install` and `cd ..`
