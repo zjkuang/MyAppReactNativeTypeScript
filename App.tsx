@@ -9,17 +9,11 @@
  */
 
 import React from 'react';
-import { RootView } from './components/root/index';
-import { startListeningDimensionsChange } from "./utilities/device";
-
-const onboarding = () => {
-  startListeningDimensionsChange();
-};
+import { TargetRootView } from "./target";
 
 const App = () => {
-  onboarding();
   return (
-    <RootView />
+    <TargetRootView />
   );
 };
 

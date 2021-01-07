@@ -17,3 +17,5 @@ with
 (2.2) `cd MyAppReactNativeTypeScript` and `git init` and `git add .` and `git commit -m 'initial'`
 (2.3) `git remote add origin https://github.com/zjkuang/MyAppReactNativeTypeScript.git`
 (2.4) `git push -u origin master`
+
+(3) Run on a specific Android Emulator

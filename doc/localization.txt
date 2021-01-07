@@ -1,0 +1,4 @@
+https://www.npmjs.com/package/react-native-localization
+
+yarn add react-native-localization --save
+cd ios && pod install && cd ..

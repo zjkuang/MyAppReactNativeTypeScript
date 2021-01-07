@@ -1,0 +1,7 @@
+(1) useEffect
+  https://daveceddia.com/useeffect-hook-examples/#prevent-useeffect-from-running-every-render
+
+  Cheatsheet: https://daveceddia.com/freebies/useEffect%20Cheatsheet.pdf?ck_subscriber_id=1130171284
+
+(2) useRef
+  https://medium.com/trabe/react-useref-hook-b6c9d39e2022
