@@ -1,14 +1,26 @@
+import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
 import { View } from "react-native";
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { styles as commonStyles } from '../../../components/common/style';
+import { getUIHierarchy } from '../../resources/hierarchy';
 import { styles } from "./style";
+
+const SettingsStack = createStackNavigator();
 
 const SettingsView = () => {
   return (
-    <SafeAreaView>
-      <View style={styles.baseView} />
-    </SafeAreaView>
+    <SettingsStack.Navigator>
+      <SettingsStack.Screen
+        name={getUIHierarchy().root.items.main.items.settings.view.items.settings.name}
+        component={SettingsRootView}
+      />
+    </SettingsStack.Navigator>
+  );
+};
+
+const SettingsRootView = () => {
+  return (
+    <View style={styles.baseView} />
   );
 };
 

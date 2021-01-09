@@ -49,13 +49,25 @@ const myLabStrings = new LocalizedStrings({
 
 const myLabUI = new LocalizedStrings({
   "en": {
-    main: "main",
+    john: "John",
+    yan: "Yan",
+    david: "David",
+    sophie: "Sophie",
+    settings: "settings",
   },
   "en-US": {
-    main: "main",
+    john: "John",
+    yan: "Yan",
+    david: "David",
+    sophie: "Sophie",
+    settings: "settings",
   },
   "en-CA": {
-    main: "main",
+    john: "John",
+    yan: "Yan",
+    david: "David",
+    sophie: "Sophie",
+    settings: "settings",
   },
 });
 

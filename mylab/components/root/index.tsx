@@ -47,7 +47,9 @@ const RootView = () => {
   return (
     <MyLabContext.Provider value={currentContext}>
       <NavigationContainer>
-        <RootStackView />
+        <SafeAreaView style={{flex: 1}}>
+          <RootStackView />
+        </SafeAreaView>
       </NavigationContainer>
     </MyLabContext.Provider>
   );
