@@ -13,13 +13,14 @@ import { SettingsView } from '../settings';
 import { getUIHierarchy } from '../../resources/hierarchy';
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Fontisto from 'react-native-vector-icons/Fontisto';
 
 type MainTabParamList = {
   'John': {},
   'Yan': {},
   'David': {},
   'Sophie': {},
-  'Settings': {},
+  'Elsa': {},
 };
 type JohnTabScreenRouteProp = RouteProp<
   MainTabParamList,
@@ -45,9 +46,10 @@ const MainView = () => {
           } else if (route.name === 'Sophie') {
             const iconName = 'filter-4';
             return <MaterialIcons name={iconName} color={color} size={20} />
-          } else if (route.name === 'Settings') {
+          } else if (route.name === 'Elsa') {
             const iconName = 'settings';
-            return <Feather name={iconName} color={color} size={20} />
+            // return <Feather name={iconName} color={color} size={20} />
+            return <Fontisto name={'snowflake-8'} color={color} size={20} />
           }
         }
       })}
@@ -69,7 +71,7 @@ const MainView = () => {
         component={SophieView}
       />
       <BottomTab.Screen
-        name={getUIHierarchy().root.items.main.items.settings.tabItem.name}
+        name={'Elsa' || getUIHierarchy().root.items.main.items.settings.tabItem.name}
         component={SettingsView}
       />
     </BottomTab.Navigator>

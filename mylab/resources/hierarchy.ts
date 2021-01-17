@@ -94,7 +94,7 @@ const getUIHierarchy = () => {
                 items: {
                   settings: {
                     name: "root/mainBottomTab/johnStack/settingsView",
-                    title: titleUppercased(myLabUI.settings),
+                    title: titleUppercased('Elsa' || myLabUI.settings),
                     type: UIHeirachyType.view,
                   },
                 },
