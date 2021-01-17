@@ -1,5 +1,4 @@
 import { createStackNavigator, StackNavigationOptions, StackNavigationProp } from '@react-navigation/stack';
-import { RouteProp } from "@react-navigation/native";
 import React, { useLayoutEffect } from 'react';
 import { View } from "react-native";
 import { styles as commonStyles } from '../../../components/common/style';
@@ -11,10 +10,6 @@ type JohnStackParamList = {
 };
 type JohnScreenNavigationProp = StackNavigationProp<
   JohnStackParamList
->;
-type JohnScreenRouteProp = RouteProp<
-  JohnStackParamList,
-  'John'
 >;
 type Props = {
   navigation: JohnScreenNavigationProp

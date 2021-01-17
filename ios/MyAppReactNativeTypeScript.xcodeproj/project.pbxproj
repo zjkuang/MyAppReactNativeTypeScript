@@ -16,6 +16,7 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* MyAppReactNativeTypeScriptTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* MyAppReactNativeTypeScriptTests.m */; };
+		6E09C77525B3E50F00F614EE /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 6E09C77425B3E50F00F614EE /* Fonts */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		CF153DAEA919488628EA4069 /* libPods-MyAppReactNativeTypeScript-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A910C46899B9C6F865A74532 /* libPods-MyAppReactNativeTypeScript-tvOSTests.a */; };
 		CF687F9A978A7282392A7C68 /* libPods-MyAppReactNativeTypeScript-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CBAA87288D302BD46367852 /* libPods-MyAppReactNativeTypeScript-tvOS.a */; };
@@ -58,6 +59,7 @@
 		2D02E4901E0B4A5D006451C7 /* MyAppReactNativeTypeScript-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MyAppReactNativeTypeScript-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D0AE84588132382CF1A5474 /* Pods-MyAppReactNativeTypeScript.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyAppReactNativeTypeScript.debug.xcconfig"; path = "Target Support Files/Pods-MyAppReactNativeTypeScript/Pods-MyAppReactNativeTypeScript.debug.xcconfig"; sourceTree = "<group>"; };
 		4D7BD03AC7B7A44B9254F506 /* libPods-MyAppReactNativeTypeScript.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyAppReactNativeTypeScript.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E09C77425B3E50F00F614EE /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = "../node_modules/react-native-vector-icons/Fonts"; sourceTree = "<group>"; };
 		6F3945EB0511FFAE5217CBC8 /* Pods-MyAppReactNativeTypeScript-MyAppReactNativeTypeScriptTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyAppReactNativeTypeScript-MyAppReactNativeTypeScriptTests.debug.xcconfig"; path = "Target Support Files/Pods-MyAppReactNativeTypeScript-MyAppReactNativeTypeScriptTests/Pods-MyAppReactNativeTypeScript-MyAppReactNativeTypeScriptTests.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = MyAppReactNativeTypeScript/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83BD87B1758F911A86327BF2 /* Pods-MyAppReactNativeTypeScript-MyAppReactNativeTypeScriptTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyAppReactNativeTypeScript-MyAppReactNativeTypeScriptTests.release.xcconfig"; path = "Target Support Files/Pods-MyAppReactNativeTypeScript-MyAppReactNativeTypeScriptTests/Pods-MyAppReactNativeTypeScript-MyAppReactNativeTypeScriptTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				6E09C77425B3E50F00F614EE /* Fonts */,
 				13B07FAE1A68108700A75B9A /* MyAppReactNativeTypeScript */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* MyAppReactNativeTypeScriptTests */,
@@ -194,7 +197,6 @@
 				B23A1B56513854D51E90D0D3 /* Pods-MyAppReactNativeTypeScript-tvOSTests.debug.xcconfig */,
 				EC3001CC1D882DF74330D3D2 /* Pods-MyAppReactNativeTypeScript-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -340,6 +342,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E09C77525B3E50F00F614EE /* Fonts in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);

@@ -22,7 +22,7 @@ const getUIHierarchy = () => {
           items: {
             john: {
               tabItem: {
-                name: "root/mainBottomTabJohn",
+                name: "John",
               },
               view: {
                 name: "root/mainBottomTab/johnStack",
@@ -38,7 +38,7 @@ const getUIHierarchy = () => {
             },
             yan: {
               tabItem: {
-                name: "root/mainBottomTabYan",
+                name: "Yan",
               },
               view: {
                 name: "root/mainBottomTab/yanStack",
@@ -54,7 +54,7 @@ const getUIHierarchy = () => {
             },
             david: {
               tabItem: {
-                name: "root/mainBottomTabDavid",
+                name: "David",
               },
               view: {
                 name: "root/mainBottomTab/davidStack",
@@ -70,7 +70,7 @@ const getUIHierarchy = () => {
             },
             sophie: {
               tabItem: {
-                name: "root/mainBottomTabSophie",
+                name: "Sophie",
               },
               view: {
                 name: "root/mainBottomTab/sophieStack",
@@ -86,7 +86,7 @@ const getUIHierarchy = () => {
             },
             settings: {
               tabItem: {
-                name: "root/mainBottomTabSettings",
+                name: "Settings",
               },
               view: {
                 name: "root/mainBottomTab/settingsStack",

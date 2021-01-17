@@ -7,3 +7,6 @@ https://github.com/oblador/react-native-vector-icons
 
 Gallery
 https://oblador.github.io/react-native-vector-icons/
+
+iOS issue: Unrecognized font family only with react-native run-ios
+https://github.com/oblador/react-native-vector-icons/issues/135#issuecomment-219137774

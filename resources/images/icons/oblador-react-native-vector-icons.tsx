@@ -12,7 +12,7 @@ const IconName = {
     obladorFeatherSearch: 'search',
     obladorMaterialCommunityIconsPlusMinus: 'plus-minus',
     obladorMaterialCommunityIconsTableOfContents: 'table-of-contents',
-    obladorMaterialCommunityIconsWeb: 'web',
+    obladorMaterialCommunityIconsWeb: 'web'
 }
 
 const IconImageView = (props: { name: any; size: number }) => {
