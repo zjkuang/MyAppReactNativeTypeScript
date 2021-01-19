@@ -33,6 +33,36 @@ const getUIHierarchy = () => {
                     title: titleUppercased(myLabUI.john),
                     type: UIHeirachyType.view,
                   },
+                  hooksDemo: {
+                    name: "root/mainBottomTab/johnStack/hooksDemoListView",
+                    title: titleUppercased(myLabUI.hooksDemo),
+                    type: UIHeirachyType.view,
+                  },
+                  useCallback: {
+                    name: "root/mainBottomTab/johnStack/hooksDemoUseCallback",
+                    title: titleUppercased(myLabUI.useCallback),
+                    type: UIHeirachyType.view,
+                  },
+                  useContext: {
+                    name: "root/mainBottomTab/johnStack/hooksDemoUseContext",
+                    title: titleUppercased(myLabUI.useContext),
+                    type: UIHeirachyType.view,
+                  },
+                  useEffect: {
+                    name: "root/mainBottomTab/johnStack/hooksDemoUseEffect",
+                    title: titleUppercased(myLabUI.useEffect),
+                    type: UIHeirachyType.view,
+                  },
+                  useLayoutEffect: {
+                    name: "root/mainBottomTab/johnStack/hooksDemoUseLayoutEffect",
+                    title: titleUppercased(myLabUI.useLayoutEffect),
+                    type: UIHeirachyType.view,
+                  },
+                  useState: {
+                    name: "root/mainBottomTab/johnStack/hooksDemoUseState",
+                    title: titleUppercased(myLabUI.useState),
+                    type: UIHeirachyType.view,
+                  },
                 },
               },
             },

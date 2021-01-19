@@ -54,6 +54,13 @@ const myLabUI = new LocalizedStrings({
     david: "David",
     sophie: "Sophie",
     settings: "settings",
+
+    hooksDemo: "Hooks Demo",
+    useCallback: "useCallback",
+    useContext: "useContext",
+    useEffect: "useEffect",
+    useLayoutEffect: "useLayoutEffect",
+    useState: "useState",
   },
   "en-US": {
     john: "John",
@@ -61,6 +68,13 @@ const myLabUI = new LocalizedStrings({
     david: "David",
     sophie: "Sophie",
     settings: "settings",
+
+    hooksDemo: "Hooks Demo",
+    useCallback: "useCallback",
+    useContext: "useContext",
+    useEffect: "useEffect",
+    useLayoutEffect: "useLayoutEffect",
+    useState: "useState",
   },
   "en-CA": {
     john: "John",
@@ -68,6 +82,13 @@ const myLabUI = new LocalizedStrings({
     david: "David",
     sophie: "Sophie",
     settings: "settings",
+
+    hooksDemo: "Hooks Demo",
+    useCallback: "useCallback",
+    useContext: "useContext",
+    useEffect: "useEffect",
+    useLayoutEffect: "useLayoutEffect",
+    useState: "useState",
   },
 });
 
