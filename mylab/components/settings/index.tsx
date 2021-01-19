@@ -17,18 +17,18 @@ type Props = {
 
 const SettingsStack = createStackNavigator();
 
-const SettingsView = () => {
+const SettingsNavigationView = () => {
   return (
     <SettingsStack.Navigator>
       <SettingsStack.Screen
         name={getUIHierarchy().root.items.main.items.settings.view.items.settings.name}
-        component={SettingsRootView}
+        component={SettingsView}
       />
     </SettingsStack.Navigator>
   );
 };
 
-const SettingsRootView = (props: Props) => {
+const SettingsView = (props: Props) => {
   const navigation = props.navigation;
   React.useLayoutEffect(() => {
     navigation.setOptions({
@@ -44,5 +44,5 @@ const SettingsRootView = (props: Props) => {
 };
 
 export {
-  SettingsView,
+  SettingsNavigationView,
 };

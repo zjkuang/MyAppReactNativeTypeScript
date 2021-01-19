@@ -17,18 +17,18 @@ type Props = {
 
 const DavidStack = createStackNavigator();
 
-const DavidView = () => {
+const DavidNavigationView = () => {
   return (
     <DavidStack.Navigator>
       <DavidStack.Screen
         name={getUIHierarchy().root.items.main.items.david.view.items.david.name}
-        component={DavidRootView}
+        component={DavidView}
       />
     </DavidStack.Navigator>
   );
 };
 
-const DavidRootView = (props: Props) => {
+const DavidView = (props: Props) => {
   const navigation = props.navigation;
   React.useLayoutEffect(() => {
     navigation.setOptions({
@@ -44,5 +44,5 @@ const DavidRootView = (props: Props) => {
 };
 
 export {
-  DavidView,
+  DavidNavigationView,
 };

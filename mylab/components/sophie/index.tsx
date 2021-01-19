@@ -17,18 +17,18 @@ type Props = {
 
 const SophieStack = createStackNavigator();
 
-const SophieView = () => {
+const SophieNavigationView = () => {
   return (
     <SophieStack.Navigator>
       <SophieStack.Screen
         name={getUIHierarchy().root.items.main.items.sophie.view.items.sophie.name}
-        component={SophieRootView}
+        component={SophieView}
       />
     </SophieStack.Navigator>
   );
 };
 
-const SophieRootView = (props: Props) => {
+const SophieView = (props: Props) => {
   const navigation = props.navigation;
   React.useLayoutEffect(() => {
     navigation.setOptions({
@@ -44,5 +44,5 @@ const SophieRootView = (props: Props) => {
 };
 
 export {
-  SophieView,
+  SophieNavigationView,
 };

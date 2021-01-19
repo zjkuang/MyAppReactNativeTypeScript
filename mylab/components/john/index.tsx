@@ -17,18 +17,18 @@ type Props = {
 
 const JohnStack = createStackNavigator();
 
-const JohnView = () => {
+const JohnNavigationView = () => {
   return (
     <JohnStack.Navigator>
       <JohnStack.Screen
         name={getUIHierarchy().root.items.main.items.john.view.items.john.name}
-        component={JohnRootView}
+        component={JohnView}
       />
     </JohnStack.Navigator>
   );
 };
 
-const JohnRootView = (props: Props) => {
+const JohnView = (props: Props) => {
   const navigation = props.navigation;
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -44,5 +44,5 @@ const JohnRootView = (props: Props) => {
 };
 
 export {
-  JohnView,
+  JohnNavigationView,
 };

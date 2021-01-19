@@ -17,18 +17,18 @@ type Props = {
 
 const YanStack = createStackNavigator();
 
-const YanView = () => {
+const YanNavigationView = () => {
   return (
     <YanStack.Navigator>
       <YanStack.Screen
         name={getUIHierarchy().root.items.main.items.yan.view.items.yan.name}
-        component={YanRootView}
+        component={YanView}
       />
     </YanStack.Navigator>
   );
 };
 
-const YanRootView = (props: Props) => {
+const YanView = (props: Props) => {
   const navigation = props.navigation;
   React.useLayoutEffect(() => {
     navigation.setOptions({
@@ -44,5 +44,5 @@ const YanRootView = (props: Props) => {
 };
 
 export {
-  YanView,
+  YanNavigationView,
 };
