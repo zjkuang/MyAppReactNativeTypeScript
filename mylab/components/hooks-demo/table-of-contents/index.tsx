@@ -1,5 +1,6 @@
-import React, { useLayoutEffect } from 'react';
-import { SectionList, SectionListData, View, Text } from "react-native";
+import React from 'react';
+import { SectionList, View, Text } from "react-native";
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import { styles as commonStyles } from '../../../../components/common/style';
 import { getUIHierarchy } from '../../../resources/hierarchy';
 import { styles } from "./style";
@@ -51,9 +52,18 @@ const HooksDemoTableOfContentsView = () => {
       <SectionList
         sections={tableOfContents}
         renderItem={({item}) => {
-          return (<Text>{item.title}</Text>)
+          const itemStyle = (item.index & 1) ? styles.item1 : styles.item0;
+          return (
+            <TouchableOpacity
+              onPress={() => {
+                console.log(`HooksDemoTableOfContentsView onPress: ${JSON.stringify(item)}`);
+              }}
+            >
+              <Text style={itemStyle}>{item.title}</Text>
+            </TouchableOpacity>
+          )
         }}
-        renderSectionHeader={({section}) => <Text>{section.title}</Text>}
+        renderSectionHeader={({section}) => <Text style={styles.sectionHeader}>{section.title}</Text>}
         keyExtractor={(item, index) => `${index}`}
       />
     </View>

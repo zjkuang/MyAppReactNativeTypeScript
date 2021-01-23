@@ -14,17 +14,28 @@ import {
     },
     sectionHeader: {
       paddingTop: 2,
-      paddingLeft: 10,
-      paddingRight: 10,
+      paddingLeft: 8,
+      paddingRight: 8,
       paddingBottom: 2,
-      fontSize: 14,
+      fontSize: 18,
       fontWeight: 'bold',
       backgroundColor: 'rgba(247,247,247,1.0)',
     },
-    item: {
-      padding: 10,
-      fontSize: 18,
-      height: 44,
+    item0: {
+      paddingTop: 12,
+      paddingLeft: 12,
+      paddingRight: 8,
+      fontSize: 16,
+      height: 40,
+      backgroundColor: 'rgba(240,240,240,1.0)',
+    },
+    item1: {
+      paddingTop: 12,
+      paddingLeft: 12,
+      paddingRight: 8,
+      fontSize: 16,
+      height: 40,
+      backgroundColor: 'rgba(232,232,232,1.0)',
     },
   });
   

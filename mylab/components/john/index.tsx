@@ -4,6 +4,7 @@ import { View } from "react-native";
 import { styles as commonStyles } from '../../../components/common/style';
 import { getUIHierarchy } from '../../resources/hierarchy';
 import { styles } from "./style";
+import { HooksDemoTableOfContentsView } from "../hooks-demo/table-of-contents/index";
 
 type JohnStackParamList = {
   'John': {}
@@ -39,7 +40,9 @@ const JohnView = (props: Props) => {
     });
   }, [navigation]);
   return (
-    <View style={styles.baseView} />
+    <View style={styles.baseView}>
+      <HooksDemoTableOfContentsView />
+    </View>
   );
 };
 
