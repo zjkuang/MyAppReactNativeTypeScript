@@ -1,19 +1,20 @@
-import { createStackNavigator, StackNavigationOptions, StackNavigationProp } from '@react-navigation/stack';
-import React, { useLayoutEffect } from 'react';
-import { View } from "react-native";
-import { styles as commonStyles } from '../../../components/common/style';
-import { getUIHierarchy } from '../../resources/hierarchy';
-import { styles } from "./style";
-import { HooksDemoTableOfContentsView } from "../hooks-demo/table-of-contents/index";
+import {
+  createStackNavigator,
+  StackNavigationProp,
+} from '@react-navigation/stack';
+import React, {useLayoutEffect} from 'react';
+import {View} from 'react-native';
+import {getUIHierarchy} from '../../resources/hierarchy';
+import {styles} from './style';
+import {HooksDemoTableOfContentsView} from '../hooks-demo/table-of-contents/index';
+import {testTypePredicate} from './test-type-predicate';
 
 type JohnStackParamList = {
-  'John': {}
+  John: {};
 };
-type JohnScreenNavigationProp = StackNavigationProp<
-  JohnStackParamList
->;
+type JohnScreenNavigationProp = StackNavigationProp<JohnStackParamList>;
 type Props = {
-  navigation: JohnScreenNavigationProp
+  navigation: JohnScreenNavigationProp;
 };
 
 const JohnStack = createStackNavigator();
@@ -39,6 +40,7 @@ const JohnView = (props: Props) => {
       },
     });
   }, [navigation]);
+  testTypePredicate();
   return (
     <View style={styles.baseView}>
       <HooksDemoTableOfContentsView />
@@ -46,6 +48,4 @@ const JohnView = (props: Props) => {
   );
 };
 
-export {
-  JohnNavigationView,
-};
+export {JohnNavigationView};
