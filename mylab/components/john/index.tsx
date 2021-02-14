@@ -7,6 +7,7 @@ import {View} from 'react-native';
 import {getUIHierarchy} from '../../resources/hierarchy';
 import {styles} from './style';
 import {HooksDemoTableOfContentsView} from '../hooks-demo/table-of-contents/index';
+import {LifeCycleDemoFlatListRecyclingItemView} from "../life-cycle-demo/flatlist-item-recycling/index";
 import {testTypePredicate} from './test-type-predicate';
 
 type JohnStackParamList = {
@@ -30,6 +31,9 @@ const JohnNavigationView = () => {
   );
 };
 
+// const DemoView = HooksDemoTableOfContentsView;
+const DemoView = LifeCycleDemoFlatListRecyclingItemView;
+
 const JohnView = (props: Props) => {
   const navigation = props.navigation;
   useLayoutEffect(() => {
@@ -43,7 +47,7 @@ const JohnView = (props: Props) => {
   testTypePredicate();
   return (
     <View style={styles.baseView}>
-      <HooksDemoTableOfContentsView />
+      <DemoView />
     </View>
   );
 };
