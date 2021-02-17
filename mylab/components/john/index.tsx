@@ -5,6 +5,7 @@ import {
 import React, {useLayoutEffect} from 'react';
 import {View} from 'react-native';
 import {getUIHierarchy} from '../../resources/hierarchy';
+// import { styles as commonStyles } from '../../../components/common/style';
 import {styles} from './style';
 import {HooksDemoTableOfContentsView} from '../hooks-demo/table-of-contents/index';
 import {LifeCycleDemoFlatListRecyclingItemView} from "../life-cycle-demo/flatlist-item-recycling/index";

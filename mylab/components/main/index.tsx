@@ -3,7 +3,7 @@ import { View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { RouteProp } from "@react-navigation/native";
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { styles as commonStyles } from '../../../components/common/style';
+// import { styles as commonStyles } from '../../../components/common/style';
 import { styles } from "./style";
 import { JohnNavigationView } from '../john';
 import { YanNavigationView } from '../yan';

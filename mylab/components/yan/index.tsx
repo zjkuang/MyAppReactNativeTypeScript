@@ -1,7 +1,7 @@
 import { createStackNavigator, StackNavigationOptions, StackNavigationProp } from '@react-navigation/stack';
 import React from 'react';
 import { View } from "react-native";
-import { styles as commonStyles } from '../../../components/common/style';
+// import { styles as commonStyles } from '../../../components/common/style';
 import { getUIHierarchy } from '../../resources/hierarchy';
 import { styles } from "./style";
 

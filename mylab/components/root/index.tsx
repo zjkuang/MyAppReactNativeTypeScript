@@ -14,7 +14,7 @@ import {
 import { getUIHierarchy } from "../../resources/hierarchy";
 import { MainView } from "../main/index";
 
-import { styles as commonStyles } from "../../../components/common/style";
+// import { styles as commonStyles } from "../../../components/common/style";
 import { styles } from "./style";
 import { MyLabContext, currentContext, saveContext, loadContext } from "../../context";
 import { deregisterDimensionsChangeListener, isLandscape, isPortrait, registerDimensionsChangeListener } from "../../../utilities/device";
