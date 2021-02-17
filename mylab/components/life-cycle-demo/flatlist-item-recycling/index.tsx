@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { FlatList, View, Text } from "react-native";
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { RecyclerListView, DataProvider, LayoutProvider } from "recyclerlistview";
 import { styles } from "./style";
 
 type ItemType = {
@@ -53,14 +54,44 @@ const MyListView = () => {
   );
 };
 
+var dataProvider = (): DataProvider => {
+  const data = new DataProvider((r1, r2) => {return r1 !== r2});
+  data.cloneWithRows(dataSource());
+  return data;
+};
+const layoutProvider: LayoutProvider = new LayoutProvider(
+  (index) => {
+    return index
+  },
+  (type, dim, index) => {
+    dim.height = 40;
+  }
+);
+
+const MyRecyclerListView = () => {
+  // https://spectrum.chat/react-native/help/recyclerlistview-scrolls-to-top-onendreached-with-functional-component~ac8ee7aa-c7a3-4ef2-a629-43b2f14a2b85
+  return (
+    <RecyclerListView
+      dataProvider={dataProvider()}
+      layoutProvider={layoutProvider}
+      rowRenderer={(type, data, index) => {
+        const item: ItemType = data;
+        return (
+          <Text>{item.title}</Text>
+        );
+      }}
+    />
+  );
+}
+
 const LifeCycleDemoFlatListRecyclingItemView = () => {
   return (
     <View style={styles.container}>
-      <MyListView />
+      <MyRecyclerListView />
     </View>
   );
 };
 
 export {
-    LifeCycleDemoFlatListRecyclingItemView,
+  LifeCycleDemoFlatListRecyclingItemView,
 };
