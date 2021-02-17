@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   createStackNavigator,
   StackNavigationProp,
@@ -32,8 +33,8 @@ const JohnNavigationView = () => {
   );
 };
 
-// const DemoView = HooksDemoTableOfContentsView;
-const DemoView = LifeCycleDemoFlatListRecyclingItemView;
+const DemoView = HooksDemoTableOfContentsView;
+// const DemoView = LifeCycleDemoFlatListRecyclingItemView;
 
 const JohnView = (props: Props) => {
   const navigation = props.navigation;
