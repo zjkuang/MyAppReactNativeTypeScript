@@ -1,8 +1,16 @@
-
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import 'react-native-gesture-handler';
-import { NavigationContainer, NavigatorScreenParams, CompositeNavigationProp } from '@react-navigation/native';
-import { createStackNavigator, TransitionPresets, StackNavigationProp } from "@react-navigation/stack";
-import React, { useCallback, useContext, useEffect } from 'react';
+import {
+  NavigationContainer,
+  NavigatorScreenParams,
+  CompositeNavigationProp,
+} from '@react-navigation/native';
+import {
+  createStackNavigator,
+  TransitionPresets,
+  StackNavigationProp,
+} from '@react-navigation/stack';
+import React, {useCallback, useContext, useEffect} from 'react';
 import {
   Platform,
   SafeAreaView,
@@ -11,15 +19,25 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
-import { getUIHierarchy } from "../../resources/hierarchy";
-import { MainView } from "../main/index";
+import {getUIHierarchy} from '../../resources/hierarchy';
+import {MainView} from '../main/index';
 
 // import { styles as commonStyles } from "../../../components/common/style";
-import { styles } from "./style";
-import { MyLabContext, currentContext, saveContext, loadContext } from "../../context";
-import { deregisterDimensionsChangeListener, isLandscape, isPortrait, registerDimensionsChangeListener } from "../../../utilities/device";
-import { startListeningDimensionsChange } from "../../../utilities/device";
-import { setLanguage } from '../../../resources/strings/strings';
+import {styles} from './style';
+import {
+  MyLabContext,
+  currentContext,
+  saveContext,
+  loadContext,
+} from '../../context';
+import {
+  deregisterDimensionsChangeListener,
+  isLandscape,
+  isPortrait,
+  registerDimensionsChangeListener,
+} from '../../../utilities/device';
+import {startListeningDimensionsChange} from '../../../utilities/device';
+import {setLanguage} from '../../../resources/strings/strings';
 
 declare const global: {HermesInternal: null | {}};
 
@@ -27,17 +45,24 @@ const RootStack = createStackNavigator();
 const RootStackView = () => {
   const headerMode = 'none'; // headerMode: 'float' | 'screen' | 'none;
   const mode = 'modal'; // mode: 'card' | 'modal' // card: slide from side; modal: slide from bottom)
-  const screenOptions: object = (Platform.OS == 'ios') ? {...TransitionPresets.ModalPresentationIOS} : {}; // TransitionPresets.ModalPresentationIOS: iOS 13 card modal
+  const screenOptions: object =
+    Platform.OS == 'ios' ? {...TransitionPresets.ModalPresentationIOS} : {}; // TransitionPresets.ModalPresentationIOS: iOS 13 card modal
   return (
     <RootStack.Navigator
       headerMode={headerMode}
       mode={mode}
-      screenOptions={screenOptions}
-    >
-      <RootStack.Screen
-        name={getUIHierarchy().root.items.main.name}
-        component={MainView}
-      />
+      screenOptions={screenOptions}>
+      {true ? (
+        <RootStack.Screen
+          name={getUIHierarchy().root.items.main.name}
+          children={() => [<MainView key={0} />]}
+        />
+      ) : (
+        <RootStack.Screen
+          name={getUIHierarchy().root.items.main.name}
+          component={MainView}
+        />
+      )}
       {/* Modal Views go here */}
     </RootStack.Navigator>
   );
@@ -56,16 +81,20 @@ const RootView = () => {
 };
 
 const RootContentView = () => {
-  const { setContext } = useContext(MyLabContext);
+  const {setContext} = useContext(MyLabContext);
 
   const initWithContext = useCallback(() => {
     loadContext().then(() => {
       setContext(currentContext);
     });
-  }, []);
+  }, [setContext]);
 
   const dimensionsChangeListener = useCallback(() => {
-    console.log(`Orientation: ${isPortrait() ? 'Portrait' : (isLandscape() ? 'Landscape' : 'unknown')}`);
+    console.log(
+      `Orientation: ${
+        isPortrait() ? 'Portrait' : isLandscape() ? 'Landscape' : 'unknown'
+      }`,
+    );
   }, []);
 
   useEffect(() => {
@@ -74,13 +103,13 @@ const RootContentView = () => {
 
   useEffect(() => {
     registerDimensionsChangeListener(dimensionsChangeListener);
-    return (() => {
+    return () => {
       deregisterDimensionsChangeListener(dimensionsChangeListener);
-    });
+    };
   }, [dimensionsChangeListener]);
 
   initWithContext();
-  
+
   return (
     <MyLabContext.Provider value={currentContext}>
       <NavigationContainer>
@@ -97,6 +126,4 @@ const onboarding = () => {
   startListeningDimensionsChange();
 };
 
-export {
-  RootView,
-};
+export {RootView};

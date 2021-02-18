@@ -1,17 +1,18 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
-import { SectionList, View, Text } from "react-native";
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import { styles as commonStyles } from '../../../../components/common/style';
-import { getUIHierarchy } from '../../../resources/hierarchy';
-import { styles } from "./style";
+import {SectionList, View, Text} from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
+import {styles as commonStyles} from '../../../../components/common/style';
+import {getUIHierarchy} from '../../../resources/hierarchy';
+import {styles} from './style';
 
 type TableOfContentsItem = {
-  index: number,
-  title: string,
+  index: number;
+  title: string;
 };
 type TableOfContentsSection = {
-  title: string,
-  data: TableOfContentsItem[],
+  title: string;
+  data: TableOfContentsItem[];
 };
 
 const tableOfContents: TableOfContentsSection[] = [
@@ -52,24 +53,27 @@ const HooksDemoTableOfContentsView = () => {
       <SectionList
         sections={tableOfContents}
         renderItem={({item}) => {
-          const itemStyle = (item.index & 1) ? styles.item1 : styles.item0;
+          const itemStyle = item.index & 1 ? styles.item1 : styles.item0;
           return (
             <TouchableOpacity
               onPress={() => {
-                console.log(`HooksDemoTableOfContentsView onPress: ${JSON.stringify(item)}`);
-              }}
-            >
+                console.log(
+                  `HooksDemoTableOfContentsView onPress: ${JSON.stringify(
+                    item,
+                  )}`,
+                );
+              }}>
               <Text style={itemStyle}>{item.title}</Text>
             </TouchableOpacity>
-          )
+          );
         }}
-        renderSectionHeader={({section}) => <Text style={styles.sectionHeader}>{section.title}</Text>}
+        renderSectionHeader={({section}) => (
+          <Text style={styles.sectionHeader}>{section.title}</Text>
+        )}
         keyExtractor={(item, index) => `${index}`}
       />
     </View>
   );
 };
 
-export {
-  HooksDemoTableOfContentsView,
-}
+export {HooksDemoTableOfContentsView};
