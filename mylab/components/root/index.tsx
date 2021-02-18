@@ -1,7 +1,7 @@
 
 import 'react-native-gesture-handler';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator, TransitionPresets } from "@react-navigation/stack";
+import { NavigationContainer, NavigatorScreenParams, CompositeNavigationProp } from '@react-navigation/native';
+import { createStackNavigator, TransitionPresets, StackNavigationProp } from "@react-navigation/stack";
 import React, { useCallback, useContext, useEffect } from 'react';
 import {
   Platform,

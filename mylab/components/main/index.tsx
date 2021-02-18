@@ -26,8 +26,24 @@ type JohnTabScreenRouteProp = RouteProp<
   MainTabParamList,
   'John'
 >;
+type YanTabScreenRouteProp = RouteProp<
+  MainTabParamList,
+  'Yan'
+>;
+type DavidTabScreenRouteProp = RouteProp<
+  MainTabParamList,
+  'David'
+>;
+type SophieTabScreenRouteProp = RouteProp<
+  MainTabParamList,
+  'Sophie'
+>;
+type ElsaTabScreenRouteProp = RouteProp<
+  MainTabParamList,
+  'Elsa'
+>;
 
-const BottomTab = createBottomTabNavigator();
+const BottomTab = createBottomTabNavigator<MainTabParamList>();
 
 const MainView = () => {
   return (
@@ -56,23 +72,23 @@ const MainView = () => {
       })}
     >
       <BottomTab.Screen
-        name={getUIHierarchy().root.items.main.items.john.tabItem.name}
+        name='John'
         component={JohnNavigationView}
       />
       <BottomTab.Screen
-        name={getUIHierarchy().root.items.main.items.yan.tabItem.name}
+        name='Yan'
         component={YanNavigationView}
       />
       <BottomTab.Screen
-        name={getUIHierarchy().root.items.main.items.david.tabItem.name}
+        name='David'
         component={DavidNavigationView}
       />
       <BottomTab.Screen
-        name={getUIHierarchy().root.items.main.items.sophie.tabItem.name}
+        name='Sophie'
         component={SophieNavigationView}
       />
       <BottomTab.Screen
-        name={'Elsa' || getUIHierarchy().root.items.main.items.settings.tabItem.name}
+        name={'Elsa'}
         component={SettingsNavigationView}
       />
     </BottomTab.Navigator>
