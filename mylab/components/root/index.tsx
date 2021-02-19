@@ -4,6 +4,7 @@ import {
   NavigationContainer,
   NavigatorScreenParams,
   CompositeNavigationProp,
+  useNavigation,
 } from '@react-navigation/native';
 import {
   createStackNavigator,
@@ -59,14 +60,11 @@ const RootStackView = () => {
       screenOptions={screenOptions}>
       {true ? (
         <RootStack.Screen
-          name='MainTab'
+          name="MainTab"
           children={() => [<MainTabView key={0} />]}
         />
       ) : (
-        <RootStack.Screen
-          name='MainTab'
-          component={MainTabView}
-        />
+        <RootStack.Screen name="MainTab" component={MainTabView} />
       )}
       {/* Modal Views go here */}
     </RootStack.Navigator>

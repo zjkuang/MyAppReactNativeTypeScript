@@ -2,7 +2,7 @@
 import React from 'react';
 import {View} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {RouteProp} from '@react-navigation/native';
+import {RouteProp, useNavigation} from '@react-navigation/native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 // import { styles as commonStyles } from '../../../components/common/style';
 import {styles} from './style';
@@ -16,7 +16,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {MainTabChildSiblingName, MainTabNavigateToSiblingFunc} from '../navigation';
+import {MainTabChildSiblingName} from '../navigation';
 
 type MainTabParamList = {
   John: {};
@@ -33,12 +33,13 @@ type ElsaTabScreenRouteProp = RouteProp<MainTabParamList, 'Elsa'>;
 
 type MainTabScreenNavigationProp = StackNavigationProp<MainTabParamList>;
 type MainTabViewProps = {
-  navigation?: MainTabScreenNavigationProp;
+  test?: any;
 };
 
 const BottomTab = createBottomTabNavigator<MainTabParamList>();
 
 const MainTabView = (props: MainTabViewProps) => {
+  const navigation = useNavigation();
   return (
     <BottomTab.Navigator
       screenOptions={({route}) => ({
@@ -85,9 +86,9 @@ const MainTabView = (props: MainTabViewProps) => {
               key={0}
               navigateToSibling={(name: MainTabChildSiblingName) => {
                 console.log(`${name}`);
-                props.navigation?.navigate(name, {});
+                navigation.navigate(name, {});
               }}
-            />
+            />,
           ]}
         />
       ) : (
