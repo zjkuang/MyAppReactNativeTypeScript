@@ -6,8 +6,9 @@ import {YanNavigationView} from '../yan';
 import {DavidNavigationView} from '../david';
 import {SophieNavigationView} from '../sophie';
 import {SettingsNavigationView} from '../settings';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Feather from 'react-native-vector-icons/Feather';
 import Fontisto from 'react-native-vector-icons/Fontisto';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {MainTabChildSiblingName} from '../navigation-index';
 
 type MainTabParamList = {
@@ -46,10 +47,17 @@ const MainTabView = () => {
               <MaterialIcons name={iconName} color={color} size={dynamicSize} />
             );
           } else if (route.name === 'Elsa') {
-            // return <Feather name={iconName} color={color} size={20} />
-            return (
-              <Fontisto name={'snowflake-8'} color={color} size={dynamicSize} />
-            );
+            if (focused) {
+              return (
+                <Fontisto
+                  name={'snowflake-8'}
+                  color={color}
+                  size={dynamicSize}
+                />
+              );
+            } else {
+              return <Feather name={'box'} color={color} size={dynamicSize} />;
+            }
           }
         },
       })}>
