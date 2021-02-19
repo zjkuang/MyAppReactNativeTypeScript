@@ -1,48 +1,44 @@
-import { createStackNavigator, StackNavigationOptions, StackNavigationProp } from '@react-navigation/stack';
 import React from 'react';
-import { View } from "react-native";
-// import { styles as commonStyles } from '../../../components/common/style';
-import { getUIHierarchy } from '../../resources/hierarchy';
-import { styles } from "./style";
+import {createStackNavigator} from '@react-navigation/stack';
+import {View} from 'react-native';
+import {styles} from './style';
+import {useNavigation} from '@react-navigation/native';
 
 type YanStackParamList = {
-  'Yan': {}
+  Yan: {}; // navigation root
+  // more navigation children can be added here
 };
-type YanScreenNavigationProp = StackNavigationProp<
-  YanStackParamList
->;
-type Props = {
-  navigation: YanScreenNavigationProp
-};
-
-const YanStack = createStackNavigator();
-
+const YanStack = createStackNavigator<YanStackParamList>();
 const YanNavigationView = () => {
   return (
     <YanStack.Navigator>
-      <YanStack.Screen
-        name={getUIHierarchy().root.items.main.items.yan.view.items.yan.name}
-        component={YanView}
-      />
+      {true ? (
+        <YanStack.Screen
+          name="Yan"
+          children={() => [<YanView key={0} test={'test'} />]}
+        />
+      ) : (
+        <YanStack.Screen name="Yan" component={YanView} />
+      )}
     </YanStack.Navigator>
   );
 };
 
-const YanView = (props: Props) => {
-  const navigation = props.navigation;
+type YanViewProp = {
+  test?: string;
+};
+const YanView = (props: YanViewProp) => {
+  console.log(`YanView rendered with property test=${props.test}`);
+  const navigation = useNavigation();
   React.useLayoutEffect(() => {
     navigation.setOptions({
-      title: getUIHierarchy().root.items.main.items.yan.view.items.yan.title,
+      title: 'Yan',
       headerTitleStyle: {
         alignSelf: 'center',
       },
     });
   }, [navigation]);
-  return (
-    <View style={styles.baseView} />
-  );
+  return <View style={styles.baseView} />;
 };
 
-export {
-  YanNavigationView,
-};
+export {YanNavigationView};

@@ -1,21 +1,13 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
-import {View} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {RouteProp, useNavigation} from '@react-navigation/native';
-import {SafeAreaView} from 'react-native-safe-area-context';
-// import { styles as commonStyles } from '../../../components/common/style';
-import {styles} from './style';
+import {useNavigation} from '@react-navigation/native';
 import {JohnNavigationView} from '../john';
 import {YanNavigationView} from '../yan';
 import {DavidNavigationView} from '../david';
 import {SophieNavigationView} from '../sophie';
 import {SettingsNavigationView} from '../settings';
-import {getUIHierarchy} from '../../resources/hierarchy';
-import Feather from 'react-native-vector-icons/Feather';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Fontisto from 'react-native-vector-icons/Fontisto';
-import {StackNavigationProp} from '@react-navigation/stack';
 import {MainTabChildSiblingName} from '../navigation-index';
 
 type MainTabParamList = {
@@ -25,25 +17,13 @@ type MainTabParamList = {
   Sophie: {};
   Elsa: {};
 };
-type JohnTabScreenRouteProp = RouteProp<MainTabParamList, 'John'>;
-type YanTabScreenRouteProp = RouteProp<MainTabParamList, 'Yan'>;
-type DavidTabScreenRouteProp = RouteProp<MainTabParamList, 'David'>;
-type SophieTabScreenRouteProp = RouteProp<MainTabParamList, 'Sophie'>;
-type ElsaTabScreenRouteProp = RouteProp<MainTabParamList, 'Elsa'>;
-
-type MainTabScreenNavigationProp = StackNavigationProp<MainTabParamList>;
-type MainTabViewProps = {
-  test?: any;
-};
-
 const BottomTab = createBottomTabNavigator<MainTabParamList>();
-
-const MainTabView = (props: MainTabViewProps) => {
+const MainTabView = () => {
   const navigation = useNavigation();
   return (
     <BottomTab.Navigator
       screenOptions={({route}) => ({
-        tabBarIcon: ({focused, color, size}) => {
+        tabBarIcon: ({focused, color}) => {
           const dynamicSize = focused ? 20 : 16;
           if (route.name === 'John') {
             const iconName = 'filter-1';
@@ -66,7 +46,6 @@ const MainTabView = (props: MainTabViewProps) => {
               <MaterialIcons name={iconName} color={color} size={dynamicSize} />
             );
           } else if (route.name === 'Elsa') {
-            const iconName = 'settings';
             // return <Feather name={iconName} color={color} size={20} />
             return (
               <Fontisto name={'snowflake-8'} color={color} size={dynamicSize} />
@@ -85,7 +64,6 @@ const MainTabView = (props: MainTabViewProps) => {
             <SettingsNavigationView
               key={0}
               navigateToSibling={(name: MainTabChildSiblingName) => {
-                console.log(`${name}`);
                 navigation.navigate(name, {});
               }}
             />,

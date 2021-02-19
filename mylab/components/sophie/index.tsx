@@ -1,48 +1,44 @@
-import { createStackNavigator, StackNavigationOptions, StackNavigationProp } from '@react-navigation/stack';
 import React from 'react';
-import { View } from "react-native";
-import { styles as commonStyles } from '../../../components/common/style';
-import { getUIHierarchy } from '../../resources/hierarchy';
-import { styles } from "./style";
+import {createStackNavigator} from '@react-navigation/stack';
+import {View} from 'react-native';
+import {styles} from './style';
+import {useNavigation} from '@react-navigation/native';
 
 type SophieStackParamList = {
-  'Sophie': {}
+  Sophie: {}; // navigation root
+  // more navigation children can be added here
 };
-type SophieScreenNavigationProp = StackNavigationProp<
-  SophieStackParamList
->;
-type Props = {
-  navigation: SophieScreenNavigationProp
-};
-
-const SophieStack = createStackNavigator();
-
+const SophieStack = createStackNavigator<SophieStackParamList>();
 const SophieNavigationView = () => {
   return (
     <SophieStack.Navigator>
-      <SophieStack.Screen
-        name={getUIHierarchy().root.items.main.items.sophie.view.items.sophie.name}
-        component={SophieView}
-      />
+      {true ? (
+        <SophieStack.Screen
+          name="Sophie"
+          children={() => [<SophieView key={0} test={'test'} />]}
+        />
+      ) : (
+        <SophieStack.Screen name="Sophie" component={SophieView} />
+      )}
     </SophieStack.Navigator>
   );
 };
 
-const SophieView = (props: Props) => {
-  const navigation = props.navigation;
+type SophieViewProp = {
+  test?: string;
+};
+const SophieView = (props: SophieViewProp) => {
+  console.log(`SophieView rendered with property test=${props.test}`);
+  const navigation = useNavigation();
   React.useLayoutEffect(() => {
     navigation.setOptions({
-      title: getUIHierarchy().root.items.main.items.sophie.view.items.sophie.title,
+      title: 'Sophie',
       headerTitleStyle: {
         alignSelf: 'center',
       },
     });
   }, [navigation]);
-  return (
-    <View style={styles.baseView} />
-  );
+  return <View style={styles.baseView} />;
 };
 
-export {
-  SophieNavigationView,
-};
+export {SophieNavigationView};

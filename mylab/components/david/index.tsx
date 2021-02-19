@@ -1,48 +1,44 @@
-import { createStackNavigator, StackNavigationOptions, StackNavigationProp } from '@react-navigation/stack';
 import React from 'react';
-import { View } from "react-native";
-// import { styles as commonStyles } from '../../../components/common/style';
-import { getUIHierarchy } from '../../resources/hierarchy';
-import { styles } from "./style";
+import {createStackNavigator} from '@react-navigation/stack';
+import {View} from 'react-native';
+import {styles} from './style';
+import {useNavigation} from '@react-navigation/native';
 
 type DavidStackParamList = {
-  'David': {}
+  David: {}; // navigation root
+  // more navigation children can be added here
 };
-type DavidScreenNavigationProp = StackNavigationProp<
-  DavidStackParamList
->;
-type Props = {
-  navigation: DavidScreenNavigationProp
-};
-
-const DavidStack = createStackNavigator();
-
+const DavidStack = createStackNavigator<DavidStackParamList>();
 const DavidNavigationView = () => {
   return (
     <DavidStack.Navigator>
-      <DavidStack.Screen
-        name={getUIHierarchy().root.items.main.items.david.view.items.david.name}
-        component={DavidView}
-      />
+      {true ? (
+        <DavidStack.Screen
+          name="David"
+          children={() => [<DavidView key={0} test={'test'} />]}
+        />
+      ) : (
+        <DavidStack.Screen name="David" component={DavidView} />
+      )}
     </DavidStack.Navigator>
   );
 };
 
-const DavidView = (props: Props) => {
-  const navigation = props.navigation;
+type DavidViewProp = {
+  test?: string;
+};
+const DavidView = (props: DavidViewProp) => {
+  console.log(`DavidView rendered with property test=${props.test}`);
+  const navigation = useNavigation();
   React.useLayoutEffect(() => {
     navigation.setOptions({
-      title: getUIHierarchy().root.items.main.items.david.view.items.david.title,
+      title: 'David',
       headerTitleStyle: {
         alignSelf: 'center',
       },
     });
   }, [navigation]);
-  return (
-    <View style={styles.baseView} />
-  );
+  return <View style={styles.baseView} />;
 };
 
-export {
-  DavidNavigationView,
-};
+export {DavidNavigationView};

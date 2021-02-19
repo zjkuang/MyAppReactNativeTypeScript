@@ -1,15 +1,11 @@
-import {
-  StyleSheet,
-} from 'react-native';
-    
+import {StyleSheet} from 'react-native';
+
 const styles = StyleSheet.create({
   baseView: {
     width: '100%',
     height: '100%',
-    // backgroundColor: 'cyan',
+    // backgroundColor: 'yellow',
   },
 });
 
-export {
-  styles,
-};
+export {styles};

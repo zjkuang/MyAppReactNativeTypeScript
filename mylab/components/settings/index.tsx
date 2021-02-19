@@ -1,14 +1,10 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+import React from 'react';
 import {
   createStackNavigator,
-  StackNavigationOptions,
   StackNavigationProp,
 } from '@react-navigation/stack';
-import React from 'react';
 import {View, Text} from 'react-native';
 import {FlatList, TouchableOpacity} from 'react-native-gesture-handler';
-// import { styles as commonStyles } from '../../../components/common/style';
-import {getUIHierarchy} from '../../resources/hierarchy';
 import {styles} from './style';
 import {
   MainTabChildSiblingName,
@@ -25,7 +21,8 @@ import {useNavigation} from '@react-navigation/native';
 //
 
 type SettingsStackParamList = {
-  Settings: {};
+  Settings: {}; // navigation root
+  // more navigation children can be added here
 };
 type SettingsScreenNavigationProp = StackNavigationProp<SettingsStackParamList>;
 type SettingsNavigationViewProps = {
@@ -41,22 +38,17 @@ const SettingsNavigationView = (props: SettingsNavigationViewProps) => {
   ) => {
     navigation.navigate(name);
   };
-  const mainTabChildSiblingNavigationPerformer: 'mainTab' | 'mainTabChild' =
-    'mainTab';
+  let navigationPerformer:
+    | MainTabNavigateToSiblingFunc
+    | undefined = navigateToSibling;
+  navigationPerformer = props.navigateToSibling; // comment/uncomment this line to perform by self/parent
   return (
     <SettingsStack.Navigator>
       {true ? (
         <SettingsStack.Screen
           name="Settings"
           children={() => [
-            <SettingsView
-              key={0}
-              navigateToSibling={
-                mainTabChildSiblingNavigationPerformer === 'mainTab'
-                  ? props.navigateToSibling
-                  : navigateToSibling
-              }
-            />,
+            <SettingsView key={0} navigateToSibling={navigationPerformer} />,
           ]}
         />
       ) : (
@@ -104,8 +96,7 @@ const SettingsView = (props: SettingsViewProps) => {
   const navigation = useNavigation();
   React.useLayoutEffect(() => {
     navigation.setOptions({
-      title: getUIHierarchy().root.items.main.items.settings.view.items.settings
-        .title,
+      title: 'Elsa',
       headerTitleStyle: {
         alignSelf: 'center',
       },

@@ -1,57 +1,44 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import {
-  createStackNavigator,
-  StackNavigationProp,
-} from '@react-navigation/stack';
-import React, {useLayoutEffect} from 'react';
+import React from 'react';
+import {createStackNavigator} from '@react-navigation/stack';
 import {View} from 'react-native';
-import {getUIHierarchy} from '../../resources/hierarchy';
-// import { styles as commonStyles } from '../../../components/common/style';
 import {styles} from './style';
-import {HooksDemoTableOfContentsView} from '../hooks-demo/table-of-contents/index';
-// import {LifeCycleDemoFlatListRecyclingItemView} from "../life-cycle-demo/flatlist-item-recycling/index";
-import {testTypePredicate} from './test-type-predicate';
+import {useNavigation} from '@react-navigation/native';
 
 type JohnStackParamList = {
-  John: {};
+  John: {}; // navigation root
+  // more navigation children can be added here
 };
-type JohnScreenNavigationProp = StackNavigationProp<JohnStackParamList>;
-type Props = {
-  navigation: JohnScreenNavigationProp;
-};
-
-const JohnStack = createStackNavigator();
-
+const JohnStack = createStackNavigator<JohnStackParamList>();
 const JohnNavigationView = () => {
   return (
     <JohnStack.Navigator>
-      <JohnStack.Screen
-        name={getUIHierarchy().root.items.main.items.john.view.items.john.name}
-        component={JohnView}
-      />
+      {true ? (
+        <JohnStack.Screen
+          name="John"
+          children={() => [<JohnView key={0} test={'test'} />]}
+        />
+      ) : (
+        <JohnStack.Screen name="John" component={JohnView} />
+      )}
     </JohnStack.Navigator>
   );
 };
 
-const DemoView = HooksDemoTableOfContentsView;
-// const DemoView = LifeCycleDemoFlatListRecyclingItemView;
-
-const JohnView = (props: Props) => {
-  const navigation = props.navigation;
-  useLayoutEffect(() => {
+type JohnViewProp = {
+  test?: string;
+};
+const JohnView = (props: JohnViewProp) => {
+  console.log(`JohnView rendered with property test=${props.test}`);
+  const navigation = useNavigation();
+  React.useLayoutEffect(() => {
     navigation.setOptions({
-      title: getUIHierarchy().root.items.main.items.john.view.items.john.title,
+      title: 'John',
       headerTitleStyle: {
         alignSelf: 'center',
       },
     });
   }, [navigation]);
-  testTypePredicate();
-  return (
-    <View style={styles.baseView}>
-      <DemoView />
-    </View>
-  );
+  return <View style={styles.baseView} />;
 };
 
 export {JohnNavigationView};
