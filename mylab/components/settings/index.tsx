@@ -10,6 +10,7 @@ import {FlatList, TouchableOpacity} from 'react-native-gesture-handler';
 // import { styles as commonStyles } from '../../../components/common/style';
 import {getUIHierarchy} from '../../resources/hierarchy';
 import {styles} from './style';
+import {MainTabChildSiblingName, MainTabNavigateToSiblingFunc} from '../navigation';
 
 //
 //  EEEEE  L       SSSS    A
@@ -20,35 +21,37 @@ import {styles} from './style';
 //
 
 type SettingsStackParamList = {
-  Settings: {
-    onTabNavigation: Function;
-  };
+  Settings: {};
 };
 type SettingsScreenNavigationProp = StackNavigationProp<SettingsStackParamList>;
-type Props = {
-  navigation: SettingsScreenNavigationProp;
+type SettingsNavigationViewProps = {
+  navigation?: SettingsScreenNavigationProp;
+  navigateToSibling?: MainTabNavigateToSiblingFunc;
 };
 
 const SettingsStack = createStackNavigator<SettingsStackParamList>();
 
-const SettingsNavigationView = () => {
-  const onTabNavigation = (name: string) => {
-    //
-  };
+const SettingsNavigationView = (props: SettingsNavigationViewProps) => {
   return (
     <SettingsStack.Navigator>
-      <SettingsStack.Screen
-        name="Settings"
-        component={SettingsView}
-        initialParams={{onTabNavigation: onTabNavigation}}
-      />
+      {true ? (
+        <SettingsStack.Screen
+          name="Settings"
+          children={() => [<SettingsView key={0} navigateToSibling={props.navigateToSibling}/>]}
+        />
+      ) : (
+        <SettingsStack.Screen
+          name="Settings"
+          component={SettingsView}
+        />
+      )}
     </SettingsStack.Navigator>
   );
 };
 
 type SettingsListItem = {
   index: number;
-  id: 'John' | 'Yan' | 'David' | 'Sophie';
+  id: MainTabChildSiblingName;
   title: string;
   subtitle?: string;
 };
@@ -76,17 +79,21 @@ const settingsList: SettingsListItem[] = [
   },
 ];
 
-const SettingsView = (props: Props) => {
-  const navigation = props.navigation;
+type SettingsViewProps = {
+  navigation?: SettingsScreenNavigationProp;
+  navigateToSibling?: MainTabNavigateToSiblingFunc;
+};
+
+const SettingsView = (props: SettingsViewProps) => {
   React.useLayoutEffect(() => {
-    navigation.setOptions({
+    props.navigation?.setOptions({
       title: getUIHierarchy().root.items.main.items.settings.view.items.settings
         .title,
       headerTitleStyle: {
         alignSelf: 'center',
       },
     });
-  }, [navigation]);
+  }, []);
   return (
     <View style={styles.baseView}>
       <FlatList
@@ -95,7 +102,11 @@ const SettingsView = (props: Props) => {
           const itemStyle =
             item.index % 2 ? styles.flatListItem1 : styles.flatListItem0;
           return (
-            <TouchableOpacity onPress={() => {}}>
+            <TouchableOpacity onPress={() => {
+              if (props.navigateToSibling) {
+                props.navigateToSibling(item.id);
+              }
+            }}>
               <Text style={itemStyle}>{item.title}</Text>
             </TouchableOpacity>
           );

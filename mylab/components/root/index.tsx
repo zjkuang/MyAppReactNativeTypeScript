@@ -20,7 +20,7 @@ import {
   StatusBar,
 } from 'react-native';
 import {getUIHierarchy} from '../../resources/hierarchy';
-import {MainView} from '../main/index';
+import {MainTabView} from '../main/index';
 
 // import { styles as commonStyles } from "../../../components/common/style";
 import {styles} from './style';
@@ -41,7 +41,12 @@ import {setLanguage} from '../../../resources/strings/strings';
 
 declare const global: {HermesInternal: null | {}};
 
-const RootStack = createStackNavigator();
+type RootStackParamList = {
+  MainTab: {};
+  Modal: {};
+};
+
+const RootStack = createStackNavigator<RootStackParamList>();
 const RootStackView = () => {
   const headerMode = 'none'; // headerMode: 'float' | 'screen' | 'none;
   const mode = 'modal'; // mode: 'card' | 'modal' // card: slide from side; modal: slide from bottom)
@@ -54,13 +59,13 @@ const RootStackView = () => {
       screenOptions={screenOptions}>
       {true ? (
         <RootStack.Screen
-          name={getUIHierarchy().root.items.main.name}
-          children={() => [<MainView key={0} />]}
+          name='MainTab'
+          children={() => [<MainTabView key={0} />]}
         />
       ) : (
         <RootStack.Screen
-          name={getUIHierarchy().root.items.main.name}
-          component={MainView}
+          name='MainTab'
+          component={MainTabView}
         />
       )}
       {/* Modal Views go here */}

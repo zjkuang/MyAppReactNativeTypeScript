@@ -16,8 +16,8 @@ import Feather from 'react-native-vector-icons/Feather';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import {StackNavigationProp} from '@react-navigation/stack';
+import {MainTabChildSiblingName, MainTabNavigateToSiblingFunc} from '../navigation';
 
-type MainTabSibblingName = 'John' | 'Yan' | 'David' | 'Sophie' | 'Elsa';
 type MainTabParamList = {
   John: {};
   Yan: {};
@@ -32,17 +32,13 @@ type SophieTabScreenRouteProp = RouteProp<MainTabParamList, 'Sophie'>;
 type ElsaTabScreenRouteProp = RouteProp<MainTabParamList, 'Elsa'>;
 
 type MainTabScreenNavigationProp = StackNavigationProp<MainTabParamList>;
-type MainViewProps = {
-  navigation: MainTabScreenNavigationProp;
+type MainTabViewProps = {
+  navigation?: MainTabScreenNavigationProp;
 };
 
 const BottomTab = createBottomTabNavigator<MainTabParamList>();
 
-const MainView = (props: MainViewProps) => {
-  const navigation = props.navigation;
-  const navigateToSibbling = (name: MainTabSibblingName) => {
-    navigation.navigate(name, {});
-  };
+const MainTabView = (props: MainTabViewProps) => {
   return (
     <BottomTab.Navigator
       screenOptions={({route}) => ({
@@ -84,7 +80,15 @@ const MainView = (props: MainViewProps) => {
       {true ? (
         <BottomTab.Screen
           name={'Elsa'}
-          children={() => [<SettingsNavigationView key={0} />]}
+          children={() => [
+            <SettingsNavigationView
+              key={0}
+              navigateToSibling={(name: MainTabChildSiblingName) => {
+                console.log(`${name}`);
+                props.navigation?.navigate(name, {});
+              }}
+            />
+          ]}
         />
       ) : (
         <BottomTab.Screen name={'Elsa'} component={SettingsNavigationView} />
@@ -93,4 +97,4 @@ const MainView = (props: MainViewProps) => {
   );
 };
 
-export {MainView};
+export {MainTabView};
