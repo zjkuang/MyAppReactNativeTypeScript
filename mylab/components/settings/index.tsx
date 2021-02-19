@@ -13,7 +13,7 @@ import {styles} from './style';
 import {
   MainTabChildSiblingName,
   MainTabNavigateToSiblingFunc,
-} from '../navigation';
+} from '../navigation-index';
 import {useNavigation} from '@react-navigation/native';
 
 //
@@ -111,6 +111,7 @@ const SettingsView = (props: SettingsViewProps) => {
       },
     });
   }, [navigation]);
+  const navigationPerformer: 'parent' | 'self' = 'self';
   return (
     <View style={styles.baseView}>
       <FlatList
@@ -121,8 +122,12 @@ const SettingsView = (props: SettingsViewProps) => {
           return (
             <TouchableOpacity
               onPress={() => {
-                if (props.navigateToSibling) {
-                  props.navigateToSibling(item.id);
+                if (navigationPerformer === 'self') {
+                  navigation.navigate(item.id);
+                } else {
+                  if (props.navigateToSibling) {
+                    props.navigateToSibling(item.id);
+                  }
                 }
               }}>
               <Text style={itemStyle}>{item.title}</Text>

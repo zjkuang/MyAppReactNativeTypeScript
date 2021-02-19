@@ -16,7 +16,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {MainTabChildSiblingName} from '../navigation';
+import {MainTabChildSiblingName} from '../navigation-index';
 
 type MainTabParamList = {
   John: {};

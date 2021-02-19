@@ -72,6 +72,9 @@ const RootStackView = () => {
 };
 
 const RootView = () => {
+  useEffect(() => {
+    onboarding();
+  }, []);
   return (
     <MyLabContext.Provider value={currentContext}>
       <NavigationContainer>
