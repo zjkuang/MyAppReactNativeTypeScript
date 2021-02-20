@@ -25,12 +25,10 @@ type SettingsStackParamList = {
   // more navigation children can be added here
 };
 type SettingsScreenNavigationProp = StackNavigationProp<SettingsStackParamList>;
+const SettingsStack = createStackNavigator<SettingsStackParamList>();
 type SettingsNavigationViewProps = {
   navigateToSibling?: MainTabNavigateToSiblingFunc;
 };
-
-const SettingsStack = createStackNavigator<SettingsStackParamList>();
-
 const SettingsNavigationView = (props: SettingsNavigationViewProps) => {
   const navigation = useNavigation();
   const navigateToSibling: MainTabNavigateToSiblingFunc = (

@@ -1,11 +1,11 @@
 import {StyleSheet} from 'react-native';
+import {commonStyles, positioning} from '../common/style';
 
 const styles = StyleSheet.create({
   baseView: {
-    width: '100%',
-    height: '100%',
-    // backgroundColor: 'cyan',
+    ...commonStyles.fullSize,
+    ...commonStyles.contentAlignmentCenter,
   },
 });
 
-export {styles};
+export {styles, commonStyles, positioning};

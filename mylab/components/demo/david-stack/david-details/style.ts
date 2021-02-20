@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {commonStyles, positioning} from '../common/style';
+import {commonStyles, positioning} from '../../../common/style';
 
 const styles = StyleSheet.create({
   baseView: {

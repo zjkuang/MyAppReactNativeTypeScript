@@ -1,9 +1,9 @@
 import {StyleSheet} from 'react-native';
+import {commonStyles, positioning} from '../common/style';
 
 const styles = StyleSheet.create({
   baseView: {
-    width: '100%',
-    height: '100%',
+    ...commonStyles.fullSize,
   },
   flatListItem0: {
     paddingTop: 12,
@@ -23,4 +23,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export {styles};
+export {styles, commonStyles, positioning};
