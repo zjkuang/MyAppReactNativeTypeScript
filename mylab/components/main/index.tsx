@@ -1,21 +1,21 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {useNavigation} from '@react-navigation/native';
-import {JohnNavigationView} from '../john';
-import {YanNavigationView} from '../yan';
-import {DavidNavigationView} from '../david';
-import {SophieNavigationView} from '../sophie';
-import {SettingsNavigationView} from '../settings';
+import {AnnaNavigationView} from '../anna';
+import {KristoffNavigationView} from '../kristoff';
+import {SvenNavigationView} from '../sven';
+import {OlafNavigationView} from '../olaf';
+import {ElsaNavigationView} from '../elsa';
 import Feather from 'react-native-vector-icons/Feather';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {MainTabChildSiblingName} from '../navigation-index';
 
 type MainTabParamList = {
-  John: {};
-  Yan: {};
-  David: {};
-  Sophie: {};
+  Anna: {};
+  Kristoff: {};
+  Sven: {};
+  Olaf: {};
   Elsa: {};
 };
 const BottomTab = createBottomTabNavigator<MainTabParamList>();
@@ -26,22 +26,22 @@ const MainTabView = () => {
       screenOptions={({route}) => ({
         tabBarIcon: ({focused, color}) => {
           const dynamicSize = focused ? 20 : 16;
-          if (route.name === 'John') {
+          if (route.name === 'Anna') {
             const iconName = 'filter-1';
             return (
               <MaterialIcons name={iconName} color={color} size={dynamicSize} />
             );
-          } else if (route.name === 'Yan') {
+          } else if (route.name === 'Kristoff') {
             const iconName = 'filter-2';
             return (
               <MaterialIcons name={iconName} color={color} size={dynamicSize} />
             );
-          } else if (route.name === 'David') {
+          } else if (route.name === 'Sven') {
             const iconName = 'filter-3';
             return (
               <MaterialIcons name={iconName} color={color} size={dynamicSize} />
             );
-          } else if (route.name === 'Sophie') {
+          } else if (route.name === 'Olaf') {
             const iconName = 'filter-4';
             return (
               <MaterialIcons name={iconName} color={color} size={dynamicSize} />
@@ -61,15 +61,15 @@ const MainTabView = () => {
           }
         },
       })}>
-      <BottomTab.Screen name="John" component={JohnNavigationView} />
-      <BottomTab.Screen name="Yan" component={YanNavigationView} />
-      <BottomTab.Screen name="David" component={DavidNavigationView} />
-      <BottomTab.Screen name="Sophie" component={SophieNavigationView} />
+      <BottomTab.Screen name="Anna" component={AnnaNavigationView} />
+      <BottomTab.Screen name="Kristoff" component={KristoffNavigationView} />
+      <BottomTab.Screen name="Sven" component={SvenNavigationView} />
+      <BottomTab.Screen name="Olaf" component={OlafNavigationView} />
       {true ? (
         <BottomTab.Screen
           name={'Elsa'}
           children={() => [
-            <SettingsNavigationView
+            <ElsaNavigationView
               key={0}
               navigateToSibling={(name: MainTabChildSiblingName) => {
                 navigation.navigate(name, {});
@@ -78,7 +78,7 @@ const MainTabView = () => {
           ]}
         />
       ) : (
-        <BottomTab.Screen name={'Elsa'} component={SettingsNavigationView} />
+        <BottomTab.Screen name={'Elsa'} component={ElsaNavigationView} />
       )}
     </BottomTab.Navigator>
   );

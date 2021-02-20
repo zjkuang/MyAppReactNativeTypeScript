@@ -4,10 +4,10 @@ import {styles} from './style';
 import {useNavigation} from '@react-navigation/native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
-export type SophieDetailsViewProp = {
+export type OlafDetailsViewProp = {
   test?: string;
 };
-const SophieDetailsView = (props: SophieDetailsViewProp) => {
+const OlafDetailsView = (props: OlafDetailsViewProp) => {
   const navigation = useNavigation();
   React.useLayoutEffect(() => {
     navigation.setOptions({
@@ -21,10 +21,10 @@ const SophieDetailsView = (props: SophieDetailsViewProp) => {
     <View style={styles.baseView}>
       <TouchableOpacity
         onPress={() => {
-            navigation.navigate("David");
+            navigation.navigate("Sven");
         }}
       >
-        <Text>Go To David</Text>
+        <Text>Go To Sven</Text>
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => {
@@ -35,13 +35,13 @@ const SophieDetailsView = (props: SophieDetailsViewProp) => {
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => {
-            navigation.navigate("John");
+            navigation.navigate("Anna");
         }}
       >
-        <Text>Go To John</Text>
+        <Text>Go To Anna</Text>
       </TouchableOpacity>
     </View>
   );
 };
 
-export {SophieDetailsView};
+export {OlafDetailsView};

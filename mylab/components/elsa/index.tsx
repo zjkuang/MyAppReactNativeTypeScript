@@ -20,16 +20,16 @@ import {useNavigation} from '@react-navigation/native';
 //  EEEEE  LLLLL  SSSS   A   A
 //
 
-type SettingsStackParamList = {
-  Settings: {}; // navigation root
+type ElsaStackParamList = {
+  Elsa: {}; // navigation root
   // more navigation children can be added here
 };
-type SettingsScreenNavigationProp = StackNavigationProp<SettingsStackParamList>;
-const SettingsStack = createStackNavigator<SettingsStackParamList>();
-type SettingsNavigationViewProps = {
+type ElsaScreenNavigationProp = StackNavigationProp<ElsaStackParamList>;
+const ElsaStack = createStackNavigator<ElsaStackParamList>();
+type ElsaNavigationViewProps = {
   navigateToSibling?: MainTabNavigateToSiblingFunc;
 };
-const SettingsNavigationView = (props: SettingsNavigationViewProps) => {
+const ElsaNavigationView = (props: ElsaNavigationViewProps) => {
   const navigation = useNavigation();
   const navigateToSibling: MainTabNavigateToSiblingFunc = (
     name: MainTabChildSiblingName,
@@ -41,56 +41,56 @@ const SettingsNavigationView = (props: SettingsNavigationViewProps) => {
     | undefined = navigateToSibling;
   navigationPerformer = props.navigateToSibling; // comment/uncomment this line to perform by self/parent
   return (
-    <SettingsStack.Navigator>
+    <ElsaStack.Navigator>
       {true ? (
-        <SettingsStack.Screen
-          name="Settings"
+        <ElsaStack.Screen
+          name="Elsa"
           children={() => [
-            <SettingsView key={0} navigateToSibling={navigationPerformer} />,
+            <ElsaView key={0} navigateToSibling={navigationPerformer} />,
           ]}
         />
       ) : (
-        <SettingsStack.Screen name="Settings" component={SettingsView} />
+        <ElsaStack.Screen name="Elsa" component={ElsaView} />
       )}
-    </SettingsStack.Navigator>
+    </ElsaStack.Navigator>
   );
 };
 
-type SettingsListItem = {
+type ElsaListItem = {
   index: number;
   id: MainTabChildSiblingName;
   title: string;
   subtitle?: string;
 };
 
-const settingsList: SettingsListItem[] = [
+const elsaList: ElsaListItem[] = [
   {
     index: 0,
-    id: 'John',
-    title: 'John',
+    id: 'Anna',
+    title: 'Anna',
   },
   {
     index: 1,
-    id: 'Yan',
-    title: 'Yan',
+    id: 'Kristoff',
+    title: 'Kristoff',
   },
   {
     index: 2,
-    id: 'David',
-    title: 'David',
+    id: 'Sven',
+    title: 'Sven',
   },
   {
     index: 3,
-    id: 'Sophie',
-    title: 'Sophie',
+    id: 'Olaf',
+    title: 'Olaf',
   },
 ];
 
-type SettingsViewProps = {
+type ElsaViewProps = {
   navigateToSibling?: MainTabNavigateToSiblingFunc;
 };
 
-const SettingsView = (props: SettingsViewProps) => {
+const ElsaView = (props: ElsaViewProps) => {
   const navigation = useNavigation();
   React.useLayoutEffect(() => {
     navigation.setOptions({
@@ -104,7 +104,7 @@ const SettingsView = (props: SettingsViewProps) => {
   return (
     <View style={styles.baseView}>
       <FlatList
-        data={settingsList}
+        data={elsaList}
         renderItem={({item}) => {
           const itemStyle =
             item.index % 2 ? styles.flatListItem1 : styles.flatListItem0;
@@ -129,4 +129,4 @@ const SettingsView = (props: SettingsViewProps) => {
   );
 };
 
-export {SettingsNavigationView};
+export {ElsaNavigationView};

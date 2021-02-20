@@ -3,43 +3,43 @@ import {createStackNavigator, StackNavigationProp} from '@react-navigation/stack
 import {Text, View} from 'react-native';
 import {styles} from './style';
 import {useNavigation} from '@react-navigation/native';
-import {JohnDetailsView} from '../demo/john-stack/john-details';
+import {AnnaDetailsView} from '../demo/anna-stack/anna-details';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {RootStackNavigationProp} from '../root/index';
 
-type JohnStackParamList = {
-  John?: {}; // navigation root
-  JohnDetails?: {};
+type AnnaStackParamList = {
+  Anna?: {}; // navigation root
+  AnnaDetails?: {};
   // more navigation children can be added here
 };
-type JohnStackNavitationProp = StackNavigationProp<JohnStackParamList>;
-const JohnStack = createStackNavigator<JohnStackParamList>();
-const JohnNavigationView = () => {
+type AnnaStackNavitationProp = StackNavigationProp<AnnaStackParamList>;
+const AnnaStack = createStackNavigator<AnnaStackParamList>();
+const AnnaNavigationView = () => {
   return (
-    <JohnStack.Navigator>
+    <AnnaStack.Navigator>
       {true ? (
-        <JohnStack.Screen
-          name="John"
-          children={() => [<JohnView key={0} test={'test'} />]}
+        <AnnaStack.Screen
+          name="Anna"
+          children={() => [<AnnaView key={0} test={'test'} />]}
         />
       ) : (
-        <JohnStack.Screen name="John" component={JohnView} />
+        <AnnaStack.Screen name="Anna" component={AnnaView} />
       )}
 
-      <JohnStack.Screen name="JohnDetails" component={JohnDetailsView} />
-    </JohnStack.Navigator>
+      <AnnaStack.Screen name="AnnaDetails" component={AnnaDetailsView} />
+    </AnnaStack.Navigator>
   );
 };
 
-type JohnViewProp = {
+type AnnaViewProp = {
   test?: string;
 };
-const JohnView = (props: JohnViewProp) => {
-  const navigation = useNavigation<JohnStackNavitationProp>();
+const AnnaView = (props: AnnaViewProp) => {
+  const navigation = useNavigation<AnnaStackNavitationProp>();
   const rootNavigation = useNavigation<RootStackNavigationProp>();
   React.useLayoutEffect(() => {
     navigation.setOptions({
-      title: 'John',
+      title: 'Anna',
       headerTitleStyle: {
         alignSelf: 'center',
       },
@@ -49,7 +49,7 @@ const JohnView = (props: JohnViewProp) => {
     <View style={styles.baseView}>
       <TouchableOpacity
         onPress={() => {
-          navigation.push('JohnDetails');
+          navigation.push('AnnaDetails');
         }}
       >
         <Text>Show Detail</Text>
@@ -66,4 +66,4 @@ const JohnView = (props: JohnViewProp) => {
   );
 };
 
-export {JohnNavigationView};
+export {AnnaNavigationView};

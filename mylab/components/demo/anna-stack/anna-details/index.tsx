@@ -4,10 +4,10 @@ import {styles} from './style';
 import {useNavigation} from '@react-navigation/native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
-export type JohnDetailsViewProp = {
+export type AnnaDetailsViewProp = {
   test?: string;
 };
-const JohnDetailsView = (props: JohnDetailsViewProp) => {
+const AnnaDetailsView = (props: AnnaDetailsViewProp) => {
   const navigation = useNavigation();
   React.useLayoutEffect(() => {
     navigation.setOptions({
@@ -21,10 +21,10 @@ const JohnDetailsView = (props: JohnDetailsViewProp) => {
     <View style={styles.baseView}>
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate("Sophie");
+          navigation.navigate("Olaf");
         }}
       >
-        <Text>Go To Sophie</Text>
+        <Text>Go To Olaf</Text>
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => {
@@ -35,23 +35,23 @@ const JohnDetailsView = (props: JohnDetailsViewProp) => {
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate("Yan");
+          navigation.navigate("Kristoff");
         }}
       >
-        <Text>Go To Yan</Text>
+        <Text>Go To Kristoff</Text>
       </TouchableOpacity>
 
-      { /* Depending on whether YanDetails is rendered, this may be safe or may cause a crash */
+      { /* Depending on whether KristoffDetails is rendered, this may be safe or may cause a crash */
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate("YanDetails");
+            navigation.navigate("KristoffDetails");
           }}
         >
-          <Text>Go To Yan Details (May or may not crash)</Text>
+          <Text>Go To Kristoff Details (May or may not crash)</Text>
         </TouchableOpacity>
       }
     </View>
   );
 };
 
-export {JohnDetailsView};
+export {AnnaDetailsView};
