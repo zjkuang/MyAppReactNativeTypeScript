@@ -5,6 +5,7 @@ import {styles} from './style';
 import {useNavigation} from '@react-navigation/native';
 import {DavidDetailsView} from '../demo/david-stack/david-details';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import {RootStackNavigationProp} from '../root/index';
 
 type DavidStackParamList = {
   David?: {}; // navigation root
@@ -35,6 +36,7 @@ type DavidViewProp = {
 };
 const DavidView = (props: DavidViewProp) => {
   console.log(`DavidView rendered with property test=${props.test}`);
+  const rootNavigation = useNavigation<RootStackNavigationProp>();
   const navigation = useNavigation<DavidStackNavitationProp>();
   React.useLayoutEffect(() => {
     navigation.setOptions({
@@ -46,12 +48,15 @@ const DavidView = (props: DavidViewProp) => {
   }, [navigation]);
   return (
     <View style={styles.baseView}>
+      <TouchableOpacity onPress={() => {navigation.push('DavidDetails');}}>
+        <Text>Show Detail</Text>
+      </TouchableOpacity>
       <TouchableOpacity
         onPress={() => {
-          navigation.push('DavidDetails');
+          rootNavigation.navigate("Modal", {component: 'DavidModal'});
         }}
       >
-        <Text>Show Detail</Text>
+        <Text>Show Modal</Text>
       </TouchableOpacity>
     </View>
   );

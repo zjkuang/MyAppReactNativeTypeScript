@@ -1,4 +1,5 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Platform} from 'react-native';
+import {TransitionPresets} from '@react-navigation/stack';
 
 const styles = StyleSheet.create({
   fullSize: {
@@ -79,4 +80,42 @@ const positioning = {
   }
 };
 
-export {styles as commonStyles, positioning};
+const modalControl = () => {
+  const ModalStyle = {
+      FULLSCREEN: 'fullscreen', // screenOptions = {}
+      IOS13CARD: 'card' // screenOptions = ((Platform.OS == 'ios') ? {...TransitionPresets.ModalPresentationIOS} : {})
+  }
+  const ModalSlideFrom = {
+      BOTTOM: 'bottom', // mode = 'modal'
+      SIDE: 'side' // mode = 'card'
+  }
+  const modalStyle = ModalStyle.IOS13CARD
+  const modalSlideFrom = ModalSlideFrom.BOTTOM
+  let mode: 'card' | 'modal', screenOptions
+  switch (modalStyle) {
+      case ModalStyle.FULLSCREEN:
+          screenOptions = {}
+          break
+      case ModalStyle.IOS13CARD:
+          screenOptions = ((Platform.OS == 'ios') ? {...TransitionPresets.ModalPresentationIOS} : {})
+          break
+      default:
+          screenOptions = {}
+  }
+  switch (modalSlideFrom) {
+      case ModalSlideFrom.BOTTOM:
+          mode = 'modal'
+          break
+      case ModalSlideFrom.SIDE:
+          mode = 'card'
+          break
+      default:
+          mode = 'modal'
+  }
+  return {
+      mode: mode,
+      screenOptions: screenOptions
+  }
+}
+
+export {styles as commonStyles, positioning, modalControl};
