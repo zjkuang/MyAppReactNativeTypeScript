@@ -7,7 +7,7 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 export type AnnaDetailsViewProp = {
   test?: string;
 };
-const AnnaDetailsView = (props: AnnaDetailsViewProp) => {
+export const AnnaDetailsView = (props: AnnaDetailsViewProp) => {
   const navigation = useNavigation();
   React.useLayoutEffect(() => {
     navigation.setOptions({
@@ -53,5 +53,3 @@ const AnnaDetailsView = (props: AnnaDetailsViewProp) => {
     </View>
   );
 };
-
-export {AnnaDetailsView};

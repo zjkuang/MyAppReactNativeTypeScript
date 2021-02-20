@@ -13,7 +13,7 @@ type OlafStackParamList = {
 };
 type OlafStackNavitationProp = StackNavigationProp<OlafStackParamList>;
 const OlafStack = createStackNavigator<OlafStackParamList>();
-const OlafNavigationView = () => {
+export const OlafNavigationView = () => {
   return (
     <OlafStack.Navigator>
       {true ? (
@@ -55,5 +55,3 @@ const OlafView = (props: OlafViewProp) => {
     </View>
   );
 };
-
-export {OlafNavigationView};

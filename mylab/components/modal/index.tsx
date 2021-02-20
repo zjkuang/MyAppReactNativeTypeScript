@@ -7,7 +7,7 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 export type ModalViewProp = {
   component: string;
 };
-const ModalView = (props: ModalViewProp) => {
+export const ModalView = (props: ModalViewProp) => {
   const navigation = useNavigation();
   React.useLayoutEffect(() => {
     navigation.setOptions({
@@ -25,5 +25,3 @@ const ModalView = (props: ModalViewProp) => {
     </View>
   );
 };
-
-export {ModalView};

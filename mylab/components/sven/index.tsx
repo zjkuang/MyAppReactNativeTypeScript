@@ -13,7 +13,7 @@ type SvenStackParamList = {
 };
 type SvenStackNavitationProp = StackNavigationProp<SvenStackParamList>;
 const SvenStack = createStackNavigator<SvenStackParamList>();
-const SvenNavigationView = () => {
+export const SvenNavigationView = () => {
   return (
     <SvenStack.Navigator>
       {true ? (
@@ -51,5 +51,3 @@ const SvenView = (props: SvenViewProp) => {
     </View>
   );
 };
-
-export {SvenNavigationView};

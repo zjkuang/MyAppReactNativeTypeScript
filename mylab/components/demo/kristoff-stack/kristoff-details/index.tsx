@@ -7,7 +7,7 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 export type KristoffDetailsViewProp = {
   test?: string;
 };
-const KristoffDetailsView = (props: KristoffDetailsViewProp) => {
+export const KristoffDetailsView = (props: KristoffDetailsViewProp) => {
   const navigation = useNavigation();
   React.useLayoutEffect(() => {
     navigation.setOptions({
@@ -43,5 +43,3 @@ const KristoffDetailsView = (props: KristoffDetailsViewProp) => {
     </View>
   );
 };
-
-export {KristoffDetailsView};

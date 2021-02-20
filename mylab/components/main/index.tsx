@@ -19,7 +19,7 @@ type MainTabParamList = {
   Elsa: {};
 };
 const BottomTab = createBottomTabNavigator<MainTabParamList>();
-const MainTabView = () => {
+export const MainTabView = () => {
   const navigation = useNavigation();
   return (
     <BottomTab.Navigator
@@ -83,5 +83,3 @@ const MainTabView = () => {
     </BottomTab.Navigator>
   );
 };
-
-export {MainTabView};

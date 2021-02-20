@@ -7,7 +7,7 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 export type OlafDetailsViewProp = {
   test?: string;
 };
-const OlafDetailsView = (props: OlafDetailsViewProp) => {
+export const OlafDetailsView = (props: OlafDetailsViewProp) => {
   const navigation = useNavigation();
   React.useLayoutEffect(() => {
     navigation.setOptions({
@@ -43,5 +43,3 @@ const OlafDetailsView = (props: OlafDetailsViewProp) => {
     </View>
   );
 };
-
-export {OlafDetailsView};

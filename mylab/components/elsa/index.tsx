@@ -29,7 +29,7 @@ const ElsaStack = createStackNavigator<ElsaStackParamList>();
 type ElsaNavigationViewProps = {
   navigateToSibling?: MainTabNavigateToSiblingFunc;
 };
-const ElsaNavigationView = (props: ElsaNavigationViewProps) => {
+export const ElsaNavigationView = (props: ElsaNavigationViewProps) => {
   const navigation = useNavigation();
   const navigateToSibling: MainTabNavigateToSiblingFunc = (
     name: MainTabChildSiblingName,
@@ -128,5 +128,3 @@ const ElsaView = (props: ElsaViewProps) => {
     </View>
   );
 };
-
-export {ElsaNavigationView};

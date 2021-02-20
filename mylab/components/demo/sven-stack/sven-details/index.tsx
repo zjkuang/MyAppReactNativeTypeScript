@@ -7,7 +7,7 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 export type SvenDetailsViewProp = {
   test?: string;
 };
-const SvenDetailsView = (props: SvenDetailsViewProp) => {
+export const SvenDetailsView = (props: SvenDetailsViewProp) => {
   const navigation = useNavigation();
   React.useLayoutEffect(() => {
     navigation.setOptions({
@@ -45,5 +45,3 @@ const SvenDetailsView = (props: SvenDetailsViewProp) => {
     </View>
   );
 };
-
-export {SvenDetailsView};

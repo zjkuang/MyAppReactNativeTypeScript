@@ -14,7 +14,7 @@ type AnnaStackParamList = {
 };
 type AnnaStackNavitationProp = StackNavigationProp<AnnaStackParamList>;
 const AnnaStack = createStackNavigator<AnnaStackParamList>();
-const AnnaNavigationView = () => {
+export const AnnaNavigationView = () => {
   return (
     <AnnaStack.Navigator>
       {true ? (
@@ -65,5 +65,3 @@ const AnnaView = (props: AnnaViewProp) => {
   </View>
   );
 };
-
-export {AnnaNavigationView};

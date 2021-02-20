@@ -13,7 +13,7 @@ type KristoffStackParamList = {
 };
 type KristoffStackNavitationProp = StackNavigationProp<KristoffStackParamList>;
 const KristoffStack = createStackNavigator<KristoffStackParamList>();
-const KristoffNavigationView = () => {
+export const KristoffNavigationView = () => {
   return (
     <KristoffStack.Navigator>
       {true ? (
@@ -55,5 +55,3 @@ const KristoffView = (props: KristoffViewProp) => {
     </View>
   );
 };
-
-export {KristoffNavigationView};

@@ -42,7 +42,7 @@ const RootStackView = () => {
   );
 };
 
-const RootView = () => {
+export const RootView = () => {
   return (
     <NavigationContainer>
       <SafeAreaView style={{flex: 1}}>
@@ -51,5 +51,3 @@ const RootView = () => {
     </NavigationContainer>
   );
 };
-
-export {RootView};
