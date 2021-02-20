@@ -22,10 +22,24 @@ const JohnDetailsView = (props: JohnDetailsViewProp) => {
     <View style={styles.baseView}>
       <TouchableOpacity
         onPress={() => {
+          navigation.navigate("Sophie");
+        }}
+      >
+        <Text>Go To Sophie</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => {
           navigation.goBack();
         }}
       >
         <Text>Go Back</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate("Yan");
+        }}
+      >
+        <Text>Go To Yan</Text>
       </TouchableOpacity>
     </View>
   );

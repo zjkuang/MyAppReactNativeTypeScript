@@ -1,13 +1,17 @@
 import React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
-import {View} from 'react-native';
+import {createStackNavigator, StackNavigationProp} from '@react-navigation/stack';
+import {Text, View} from 'react-native';
 import {styles} from './style';
 import {useNavigation} from '@react-navigation/native';
+import {SophieDetailsView} from '../demo/sophie-stack/sophie-details';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 type SophieStackParamList = {
-  Sophie: {}; // navigation root
+  Sophie?: {}; // navigation root
+  SophieDetails?: {};
   // more navigation children can be added here
 };
+type SophieStackNavitationProp = StackNavigationProp<SophieStackParamList>;
 const SophieStack = createStackNavigator<SophieStackParamList>();
 const SophieNavigationView = () => {
   return (
@@ -20,6 +24,8 @@ const SophieNavigationView = () => {
       ) : (
         <SophieStack.Screen name="Sophie" component={SophieView} />
       )}
+
+      <SophieStack.Screen name="SophieDetails" component={SophieDetailsView} />
     </SophieStack.Navigator>
   );
 };
@@ -29,7 +35,7 @@ type SophieViewProp = {
 };
 const SophieView = (props: SophieViewProp) => {
   console.log(`SophieView rendered with property test=${props.test}`);
-  const navigation = useNavigation();
+  const navigation = useNavigation<SophieStackNavitationProp>();
   React.useLayoutEffect(() => {
     navigation.setOptions({
       title: 'Sophie',
@@ -38,7 +44,17 @@ const SophieView = (props: SophieViewProp) => {
       },
     });
   }, [navigation]);
-  return <View style={styles.baseView} />;
+  return (
+    <View style={styles.baseView}>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.push('SophieDetails');
+        }}
+      >
+        <Text>Show Detail</Text>
+      </TouchableOpacity>
+    </View>
+  );
 };
 
 export {SophieNavigationView};
