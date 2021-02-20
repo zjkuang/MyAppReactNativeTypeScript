@@ -8,7 +8,6 @@ export type JohnDetailsViewProp = {
   test?: string;
 };
 const JohnDetailsView = (props: JohnDetailsViewProp) => {
-  console.log(`JohnDetailsView rendered with property test=${props.test}`);
   const navigation = useNavigation();
   React.useLayoutEffect(() => {
     navigation.setOptions({

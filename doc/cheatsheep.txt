@@ -1,2 +1,0 @@
-(1) Reset all packages
-rm -rf node_modules && yarn install && cd ios && pod install && cd ..

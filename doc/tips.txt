@@ -1,6 +1,0 @@
-(1) testID -> accessibility
-A view's props.testID is translated as UIView's accessibilityIdentifier. In native code, a R/N view can be found by testID property with accessibilityIdentifier.
-
-(2) Search a yarn package
-  https://yarnpkg.com
-  (TypeScript Definition packages) https://github.com/DefinitelyTyped/DefinitelyTyped

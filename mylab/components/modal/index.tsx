@@ -8,7 +8,6 @@ export type ModalViewProp = {
   component: string;
 };
 const ModalView = (props: ModalViewProp) => {
-  console.log(`ModalView rendered with property test=${props.component}`);
   const navigation = useNavigation();
   React.useLayoutEffect(() => {
     navigation.setOptions({

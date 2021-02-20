@@ -34,7 +34,6 @@ type SophieViewProp = {
   test?: string;
 };
 const SophieView = (props: SophieViewProp) => {
-  console.log(`SophieView rendered with property test=${props.test}`);
   const navigation = useNavigation<SophieStackNavitationProp>();
   React.useLayoutEffect(() => {
     navigation.setOptions({

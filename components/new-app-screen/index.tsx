@@ -13,7 +13,6 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import { styles as commonStyles } from '../common/style';
 import { styles } from './style';
 
 declare const global: {HermesInternal: null | {}};

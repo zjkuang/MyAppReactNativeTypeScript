@@ -17,7 +17,6 @@ const RootStack = createStackNavigator<RootStackParamList>();
 const RootStackView = () => {
   const headerMode: 'float' | 'screen' | 'none' = 'none';
   const {mode, screenOptions} = modalControl();
-  console.log(`Modal: mode=${mode}, screenOptions=${JSON.stringify(screenOptions)}`);
   return (
     <RootStack.Navigator
       headerMode={headerMode}

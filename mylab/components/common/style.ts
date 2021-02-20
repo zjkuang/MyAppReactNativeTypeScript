@@ -97,7 +97,6 @@ const modalControl = () => {
       screenOptions = {}
       break
     case ModalStyle.IOS13CARD:
-      console.log(`ModalStyle.IOS13CARD, Platform.OS=${Platform.OS}`);
       screenOptions = ((Platform.OS === 'ios') ? {...TransitionPresets.ModalPresentationIOS} : {})
       // screenOptions = ((Platform.OS == 'ios') ? screenOptions={
       //   headerShown: false, 
@@ -117,7 +116,6 @@ const modalControl = () => {
     default:
       mode = 'modal'
   }
-  console.log(`*** Modal: mode=${mode}, screenOptions=${JSON.stringify(screenOptions)}`);
   return {
     mode: mode,
     screenOptions: screenOptions

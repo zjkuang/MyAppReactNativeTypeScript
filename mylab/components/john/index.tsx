@@ -35,7 +35,6 @@ type JohnViewProp = {
   test?: string;
 };
 const JohnView = (props: JohnViewProp) => {
-  console.log(`JohnView rendered with property test=${props.test}`);
   const navigation = useNavigation<JohnStackNavitationProp>();
   const rootNavigation = useNavigation<RootStackNavigationProp>();
   React.useLayoutEffect(() => {
@@ -55,7 +54,7 @@ const JohnView = (props: JohnViewProp) => {
       >
         <Text>Show Detail</Text>
       </TouchableOpacity>
-      
+
       <TouchableOpacity
         onPress={() => {
           rootNavigation.navigate("Modal");

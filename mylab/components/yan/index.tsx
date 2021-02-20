@@ -34,7 +34,6 @@ type YanViewProp = {
   test?: string;
 };
 const YanView = (props: YanViewProp) => {
-  console.log(`YanView rendered with property test=${props.test}`);
   const navigation = useNavigation<YanStackNavitationProp>();
   React.useLayoutEffect(() => {
     navigation.setOptions({

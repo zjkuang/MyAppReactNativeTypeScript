@@ -8,7 +8,6 @@ export type DavidDetailsViewProp = {
   test?: string;
 };
 const DavidDetailsView = (props: DavidDetailsViewProp) => {
-  console.log(`DavidDetailsView rendered with property test=${props.test}`);
   const navigation = useNavigation();
   React.useLayoutEffect(() => {
     navigation.setOptions({

@@ -34,7 +34,6 @@ type DavidViewProp = {
   test?: string;
 };
 const DavidView = (props: DavidViewProp) => {
-  console.log(`DavidView rendered with property test=${props.test}`);
   const navigation = useNavigation<DavidStackNavitationProp>();
   React.useLayoutEffect(() => {
     navigation.setOptions({
