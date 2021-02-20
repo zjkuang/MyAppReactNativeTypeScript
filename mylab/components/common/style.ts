@@ -82,39 +82,45 @@ const positioning = {
 
 const modalControl = () => {
   const ModalStyle = {
-      FULLSCREEN: 'fullscreen', // screenOptions = {}
-      IOS13CARD: 'card' // screenOptions = ((Platform.OS == 'ios') ? {...TransitionPresets.ModalPresentationIOS} : {})
+    FULLSCREEN: 'fullscreen', // screenOptions = {}
+    IOS13CARD: 'card' // screenOptions = ((Platform.OS == 'ios') ? {...TransitionPresets.ModalPresentationIOS} : {})
   }
   const ModalSlideFrom = {
-      BOTTOM: 'bottom', // mode = 'modal'
-      SIDE: 'side' // mode = 'card'
+    BOTTOM: 'bottom', // mode = 'modal'
+    SIDE: 'side' // mode = 'card'
   }
   const modalStyle = ModalStyle.IOS13CARD
   const modalSlideFrom = ModalSlideFrom.BOTTOM
-  let mode: 'card' | 'modal', screenOptions
+  var mode: 'card' | 'modal', screenOptions
   switch (modalStyle) {
-      case ModalStyle.FULLSCREEN:
-          screenOptions = {}
-          break
-      case ModalStyle.IOS13CARD:
-          screenOptions = ((Platform.OS == 'ios') ? {...TransitionPresets.ModalPresentationIOS} : {})
-          break
-      default:
-          screenOptions = {}
+    case ModalStyle.FULLSCREEN:
+      screenOptions = {}
+      break
+    case ModalStyle.IOS13CARD:
+      console.log(`ModalStyle.IOS13CARD, Platform.OS=${Platform.OS}`);
+      screenOptions = ((Platform.OS === 'ios') ? {...TransitionPresets.ModalPresentationIOS} : {})
+      // screenOptions = ((Platform.OS == 'ios') ? screenOptions={
+      //   headerShown: false, 
+      //   presentationStyle: 'formSheet'
+      // } : {})
+      break
+    default:
+      screenOptions = {}
   }
   switch (modalSlideFrom) {
-      case ModalSlideFrom.BOTTOM:
-          mode = 'modal'
-          break
-      case ModalSlideFrom.SIDE:
-          mode = 'card'
-          break
-      default:
-          mode = 'modal'
+    case ModalSlideFrom.BOTTOM:
+      mode = 'modal'
+      break
+    case ModalSlideFrom.SIDE:
+      mode = 'card'
+      break
+    default:
+      mode = 'modal'
   }
+  console.log(`*** Modal: mode=${mode}, screenOptions=${JSON.stringify(screenOptions)}`);
   return {
-      mode: mode,
-      screenOptions: screenOptions
+    mode: mode,
+    screenOptions: screenOptions
   }
 }
 

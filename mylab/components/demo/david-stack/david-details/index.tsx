@@ -27,6 +27,7 @@ const DavidDetailsView = (props: DavidDetailsViewProp) => {
       >
         <Text>Go To John</Text>
       </TouchableOpacity>
+
       <TouchableOpacity
         onPress={() => {
           navigation.goBack();
@@ -34,6 +35,7 @@ const DavidDetailsView = (props: DavidDetailsViewProp) => {
       >
         <Text>Go Back</Text>
       </TouchableOpacity>
+
       <TouchableOpacity
         onPress={() => {
           navigation.navigate("Sophie");

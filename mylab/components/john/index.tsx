@@ -5,6 +5,7 @@ import {styles} from './style';
 import {useNavigation} from '@react-navigation/native';
 import {JohnDetailsView} from '../demo/john-stack/john-details';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import {RootStackNavigationProp} from '../root/index';
 
 type JohnStackParamList = {
   John?: {}; // navigation root
@@ -36,6 +37,7 @@ type JohnViewProp = {
 const JohnView = (props: JohnViewProp) => {
   console.log(`JohnView rendered with property test=${props.test}`);
   const navigation = useNavigation<JohnStackNavitationProp>();
+  const rootNavigation = useNavigation<RootStackNavigationProp>();
   React.useLayoutEffect(() => {
     navigation.setOptions({
       title: 'John',
@@ -53,7 +55,15 @@ const JohnView = (props: JohnViewProp) => {
       >
         <Text>Show Detail</Text>
       </TouchableOpacity>
-    </View>
+      
+      <TouchableOpacity
+        onPress={() => {
+          rootNavigation.navigate("Modal");
+        }}
+      >
+        <Text>Show Modal</Text>
+      </TouchableOpacity>
+  </View>
   );
 };
 

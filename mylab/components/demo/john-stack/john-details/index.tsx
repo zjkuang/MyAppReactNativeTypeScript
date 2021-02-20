@@ -41,6 +41,16 @@ const JohnDetailsView = (props: JohnDetailsViewProp) => {
       >
         <Text>Go To Yan</Text>
       </TouchableOpacity>
+
+      { /* Depending on whether YanDetails is rendered, this may be safe or may cause a crash */
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("YanDetails");
+          }}
+        >
+          <Text>Go To Yan Details (May or may not crash)</Text>
+        </TouchableOpacity>
+      }
     </View>
   );
 };

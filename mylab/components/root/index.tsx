@@ -2,26 +2,22 @@
 import React from 'react';
 import 'react-native-gesture-handler';
 import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator, TransitionPresets, StackNavigationProp} from '@react-navigation/stack';
-import {Platform, SafeAreaView} from 'react-native';
+import {createStackNavigator, StackNavigationProp} from '@react-navigation/stack';
+import {SafeAreaView} from 'react-native';
 import {MainTabView} from '../main/index';
 import {ModalView} from '../modal/index';
 import {modalControl} from './style';
 
 type RootStackParamList = {
   MainTab?: {};
-  Modal?: {
-    component: string;
-  };
+  Modal?: {};
 };
 export type RootStackNavigationProp = StackNavigationProp<RootStackParamList>;
 const RootStack = createStackNavigator<RootStackParamList>();
 const RootStackView = () => {
   const headerMode: 'float' | 'screen' | 'none' = 'none';
-  // const mode: 'card' | 'modal' = 'modal'; // card: slide from side; modal: slide from bottom)
-  // const screenOptions: object =
-  //   Platform.OS === 'ios' ? {...TransitionPresets.ModalPresentationIOS} : {}; // TransitionPresets.ModalPresentationIOS: iOS 13 card modal
   const {mode, screenOptions} = modalControl();
+  console.log(`Modal: mode=${mode}, screenOptions=${JSON.stringify(screenOptions)}`);
   return (
     <RootStack.Navigator
       headerMode={headerMode}
@@ -40,7 +36,7 @@ const RootStackView = () => {
       { /* Modal Views go here */
         <RootStack.Screen
           name="Modal"
-          children={() => [<ModalView key={1} component={''} />]}
+          children={() => [<ModalView key={1} component={'RootStack'} />]}
         />
       }
     </RootStack.Navigator>
